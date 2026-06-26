@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useMemo } from "react";
 import {
-  ArrowUpRight, ArrowRight, Mail, Linkedin, ExternalLink, Sparkles,
+  ArrowUpRight, ArrowRight, ExternalLink, Sparkles,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
 } from "lucide-react";
