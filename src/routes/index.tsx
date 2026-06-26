@@ -13,11 +13,11 @@ import vetlomarUrl from "@/assets/projects/vetlomar.jpg";
 import dealdockUrl from "@/assets/projects/dealdock.jpg";
 import cabinetBedsUrl from "@/assets/projects/cabinet-beds.jpg";
 import simplebruUrl from "@/assets/projects/simplebru.jpg";
-import lineageLoginUrl from "@/assets/projects/lineage-login.png";
-import lineageDashboardUrl from "@/assets/projects/lineage-dashboard.png";
-import lineageCheckinsUrl from "@/assets/projects/lineage-checkins.png";
-import lineageProspectsUrl from "@/assets/projects/lineage-prospects.png";
-import lineageTradeshowUrl from "@/assets/projects/lineage-tradeshow.png";
+import lineageLoginUrl from "@/assets/projects/lineage-login.jpg";
+import lineageDashboardUrl from "@/assets/projects/lineage-dashboard.jpg";
+import lineageCheckinsUrl from "@/assets/projects/lineage-checkins.jpg";
+import lineageProspectsUrl from "@/assets/projects/lineage-prospects.jpg";
+import lineageTradeshowUrl from "@/assets/projects/lineage-tradeshow.jpg";
 
 const lamicare = { url: lamicareUrl };
 const dermikelpUk = { url: dermikelpUkUrl };
@@ -59,7 +59,7 @@ const PROJECTS: Project[] = [
     type: "Custom Portal",
     filter: ["Custom Portals", "CRM & Automation"],
     image: lineageDashboard.url,
-    fallbackImage: screenshotPath("lineage-dashboard.png"),
+    fallbackImage: screenshotPath("lineage-dashboard.jpg"),
     description:
       "Custom internal business portal built to centralise dealer accounts, sales activity, CRM-style workflows, inventory visibility, reporting, field check-ins, prospects and trade show leads.",
     skills: ["Custom build", "CRM logic", "Field check-ins", "Trade show capture", "Analytics", "Permissions", "Data management", "AI-assisted development"],
@@ -464,11 +464,11 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
         </div>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-5">
-          <ShowcaseTile src={lineageDashboard.url} fallbackSrc={screenshotPath("lineage-dashboard.png")} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageLogin.url} fallbackSrc={screenshotPath("lineage-login.png")} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageCheckins.url} fallbackSrc={screenshotPath("lineage-checkins.png")} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageProspects.url} fallbackSrc={screenshotPath("lineage-prospects.png")} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageTradeshow.url} fallbackSrc={screenshotPath("lineage-tradeshow.png")} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageDashboard.url} fallbackSrc={screenshotPath("lineage-dashboard.jpg")} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageLogin.url} fallbackSrc={screenshotPath("lineage-login.jpg")} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageCheckins.url} fallbackSrc={screenshotPath("lineage-checkins.jpg")} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageProspects.url} fallbackSrc={screenshotPath("lineage-prospects.jpg")} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageTradeshow.url} fallbackSrc={screenshotPath("lineage-tradeshow.jpg")} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-3 reveal">
