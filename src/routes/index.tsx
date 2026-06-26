@@ -307,8 +307,8 @@ function About() {
 }
 
 function Projects({
-  projects, filter, setFilter,
-}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void }) {
+  projects, filter, setFilter, onImageClick,
+}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string) => void }) {
   const cats: Category[] = ["All", "Websites", "eCommerce", "Custom Portals", "CRM & Automation"];
   return (
     <section id="projects" className="py-24 border-t border-border bg-surface/40">
