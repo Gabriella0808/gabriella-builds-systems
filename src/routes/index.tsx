@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, type MouseEventHandler } from "react";
 import {
   ArrowUpRight, ArrowRight, ExternalLink, Sparkles, X,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
@@ -498,7 +498,7 @@ function ShowcaseTile({ src, fallbackSrc, title, className, onImageClick }: { sr
   );
 }
 
-function ReliableImage({ src, fallbackSrc, alt, className }: { src: string; fallbackSrc?: string; alt: string; className?: string }) {
+function ReliableImage({ src, fallbackSrc, alt, className, onClick }: { src: string; fallbackSrc?: string; alt: string; className?: string; onClick?: MouseEventHandler<HTMLImageElement> }) {
   const [currentSrc, setCurrentSrc] = useState(src);
 
   useEffect(() => {
@@ -512,6 +512,7 @@ function ReliableImage({ src, fallbackSrc, alt, className }: { src: string; fall
       className={className}
       loading="eager"
       decoding="async"
+      onClick={onClick}
       onError={(event) => {
         if (fallbackSrc && event.currentTarget.src !== new URL(fallbackSrc, window.location.origin).href) {
           setCurrentSrc(fallbackSrc);
