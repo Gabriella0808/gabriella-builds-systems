@@ -404,7 +404,7 @@ function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: str
   );
 }
 
-function LineageShowcase() {
+function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: string) => void }) {
   const features = [
     "Dealer & prospect management",
     "CRM-style account logic",
