@@ -58,8 +58,8 @@ const PROJECTS: Project[] = [
     category: "Custom Portal / CRM / Reporting / Operations",
     type: "Custom Portal",
     filter: ["Custom Portals", "CRM & Automation"],
-    image: lineageDashboard.url,
-    fallbackImage: screenshotPath("lineage-dashboard.jpg"),
+    image: lineageTradeshow.url,
+    fallbackImage: screenshotPath("lineage-tradeshow.jpg"),
     description:
       "Custom internal business portal built to centralise dealer accounts, sales activity, CRM-style workflows, inventory visibility, reporting, field check-ins, prospects and trade show leads.",
     skills: ["Custom build", "CRM logic", "Field check-ins", "Trade show capture", "Analytics", "Permissions", "Data management", "AI-assisted development"],
