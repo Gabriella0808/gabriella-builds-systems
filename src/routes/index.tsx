@@ -45,9 +45,12 @@ type Project = {
   filter: Exclude<Category, "All">[];
   type: string;
   image: string;
+  fallbackImage: string;
   description: string;
   skills: string[];
 };
+
+const screenshotPath = (filename: string) => `/project-screenshots/${filename}`;
 
 const PROJECTS: Project[] = [
   {
@@ -56,6 +59,7 @@ const PROJECTS: Project[] = [
     type: "Custom Portal",
     filter: ["Custom Portals", "CRM & Automation"],
     image: lineageDashboard.url,
+    fallbackImage: screenshotPath("lineage-dashboard.png"),
     description:
       "Custom internal business portal built to centralise dealer accounts, sales activity, CRM-style workflows, inventory visibility, reporting, field check-ins, prospects and trade show leads.",
     skills: ["Custom build", "CRM logic", "Field check-ins", "Trade show capture", "Analytics", "Permissions", "Data management", "AI-assisted development"],
@@ -67,6 +71,7 @@ const PROJECTS: Project[] = [
     type: "Corporate Website",
     filter: ["Websites"],
     image: lamicare.url,
+    fallbackImage: screenshotPath("lamicare.jpg"),
     description: "Managed and supported the company website, content updates, product information, maintenance, SEO support and digital platform improvements.",
     skills: ["Website management", "Content", "SEO support", "Maintenance"],
   },
@@ -77,6 +82,7 @@ const PROJECTS: Project[] = [
     type: "eCommerce",
     filter: ["eCommerce", "Websites"],
     image: dermikelpUk.url,
+    fallbackImage: screenshotPath("dermikelp-uk.jpg"),
     description: "Supported website updates, product pages, eCommerce functionality, SEO improvements, technical fixes and content management for the UK store.",
     skills: ["WordPress", "WooCommerce", "SEO", "Technical fixes"],
   },
@@ -87,6 +93,7 @@ const PROJECTS: Project[] = [
     type: "eCommerce",
     filter: ["eCommerce", "Websites"],
     image: dermikelpZa.url,
+    fallbackImage: screenshotPath("dermikelp-za.jpg"),
     description: "Managed website updates, product content, SEO structure, Google Search Console checks, metadata, internal linking and ongoing improvements.",
     skills: ["WordPress", "WooCommerce", "SEO", "GSC", "Metadata"],
   },
@@ -97,6 +104,7 @@ const PROJECTS: Project[] = [
     type: "Product Website",
     filter: ["Websites"],
     image: vetlomar.url,
+    fallbackImage: screenshotPath("vetlomar.jpg"),
     description: "Supported website management, product updates, content changes, SEO improvements, platform maintenance and digital brand visibility.",
     skills: ["WordPress", "SEO", "Content", "Maintenance"],
   },
@@ -107,6 +115,7 @@ const PROJECTS: Project[] = [
     type: "Lead Generation",
     filter: ["Websites", "CRM & Automation"],
     image: dealdock.url,
+    fallbackImage: screenshotPath("dealdock.jpg"),
     description: "Built and managed a digital platform focused on lead generation, business visibility and online conversion.",
     skills: ["Lead gen", "Website build", "Conversion", "Management"],
   },
@@ -117,6 +126,7 @@ const PROJECTS: Project[] = [
     type: "Custom Microsite",
     filter: ["Websites", "Custom Portals"],
     image: cabinetBeds.url,
+    fallbackImage: screenshotPath("cabinet-beds.jpg"),
     description: "Focused product microsite for cabinet beds, designed to support product discovery, dealer quote flow and a more direct customer journey.",
     skills: ["Custom build", "Quote flow", "Product UX", "Edge deploy"],
   },
@@ -127,6 +137,7 @@ const PROJECTS: Project[] = [
     type: "eCommerce",
     filter: ["eCommerce", "Websites"],
     image: simplebru.url,
+    fallbackImage: screenshotPath("simplebru.jpg"),
     description: "Developed and managed the eCommerce website, including product pages, navigation, checkout flow, content, stock visibility and campaign support.",
     skills: ["eCommerce", "Checkout", "Content", "Campaigns"],
   },
@@ -194,12 +205,10 @@ function Portfolio() {
     [filter]
   );
 
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const [lightboxAlt, setLightboxAlt] = useState<string>("");
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string; fallbackSrc?: string } | null>(null);
 
-  const openLightbox = (src: string, alt: string) => {
-    setLightboxImage(src);
-    setLightboxAlt(alt);
+  const openLightbox = (src: string, alt: string, fallbackSrc?: string) => {
+    setLightboxImage({ src, alt, fallbackSrc });
   };
   const closeLightbox = () => setLightboxImage(null);
 
@@ -214,7 +223,7 @@ function Portfolio() {
       <WorkflowSection />
       <Services />
       <Footer />
-      {lightboxImage && <Lightbox src={lightboxImage} alt={lightboxAlt} onClose={closeLightbox} />}
+      {lightboxImage && <Lightbox image={lightboxImage} onClose={closeLightbox} />}
     </div>
   );
 }
@@ -332,7 +341,7 @@ function About() {
 
 function Projects({
   projects, filter, setFilter, onImageClick,
-}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string) => void }) {
+}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
   const cats: Category[] = ["All", "Websites", "eCommerce", "Custom Portals", "CRM & Automation"];
   return (
     <section id="projects" className="py-24 border-t border-border bg-surface/40">
@@ -371,18 +380,18 @@ function Projects({
   );
 }
 
-function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: string, alt: string) => void }) {
+function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: string, alt: string, fallbackSrc?: string) => void }) {
   return (
     <article className="reveal group bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] transition-all duration-500">
       <div
         className="relative aspect-[16/10] overflow-hidden bg-surface cursor-zoom-in"
-        onClick={() => onImageClick && onImageClick(p.image, p.name)}
+        onClick={() => onImageClick && onImageClick(p.image, p.name, p.fallbackImage)}
       >
-        <img
+        <ReliableImage
           src={p.image}
+          fallbackSrc={p.fallbackImage}
           alt={p.name}
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-          loading="lazy"
         />
       </div>
       <div className="p-6">
@@ -428,7 +437,7 @@ function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: str
   );
 }
 
-function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: string) => void }) {
+function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
   const features = [
     "Dealer & prospect management",
     "CRM-style account logic",
@@ -455,11 +464,11 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
         </div>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-5">
-          <ShowcaseTile src={lineageDashboard.url} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageLogin.url} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageCheckins.url} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageProspects.url} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
-          <ShowcaseTile src={lineageTradeshow.url} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageDashboard.url} fallbackSrc={screenshotPath("lineage-dashboard.png")} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageLogin.url} fallbackSrc={screenshotPath("lineage-login.png")} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageCheckins.url} fallbackSrc={screenshotPath("lineage-checkins.png")} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageProspects.url} fallbackSrc={screenshotPath("lineage-prospects.png")} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageTradeshow.url} fallbackSrc={screenshotPath("lineage-tradeshow.png")} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-3 reveal">
@@ -475,17 +484,40 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
   );
 }
 
-function ShowcaseTile({ src, title, className, onImageClick }: { src: string; title: string; className?: string; onImageClick?: (src: string, alt: string) => void }) {
+function ShowcaseTile({ src, fallbackSrc, title, className, onImageClick }: { src: string; fallbackSrc: string; title: string; className?: string; onImageClick?: (src: string, alt: string, fallbackSrc?: string) => void }) {
   return (
     <figure
       className={`reveal group relative overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] cursor-zoom-in ${className ?? ""}`}
-      onClick={() => onImageClick && onImageClick(src, title)}
+      onClick={() => onImageClick && onImageClick(src, title, fallbackSrc)}
     >
-      <img src={src} alt={title} className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+      <ReliableImage src={src} fallbackSrc={fallbackSrc} alt={title} className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" />
       <figcaption className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider bg-background/85 backdrop-blur px-2.5 py-1 rounded-full text-foreground border border-border pointer-events-none">
         {title}
       </figcaption>
     </figure>
+  );
+}
+
+function ReliableImage({ src, fallbackSrc, alt, className }: { src: string; fallbackSrc?: string; alt: string; className?: string }) {
+  const [currentSrc, setCurrentSrc] = useState(src);
+
+  useEffect(() => {
+    setCurrentSrc(src);
+  }, [src]);
+
+  return (
+    <img
+      src={currentSrc}
+      alt={alt}
+      className={className}
+      loading="eager"
+      decoding="async"
+      onError={(event) => {
+        if (fallbackSrc && event.currentTarget.src !== new URL(fallbackSrc, window.location.origin).href) {
+          setCurrentSrc(fallbackSrc);
+        }
+      }}
+    />
   );
 }
 
@@ -582,7 +614,7 @@ function Services() {
 }
 
 
-function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+function Lightbox({ image, onClose }: { image: { src: string; alt: string; fallbackSrc?: string }; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
@@ -605,9 +637,10 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
       >
         <X className="w-5 h-5" />
       </button>
-      <img
-        src={src}
-        alt={alt}
+      <ReliableImage
+        src={image.src}
+        fallbackSrc={image.fallbackSrc}
+        alt={image.alt}
         className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
         onClick={(e) => e.stopPropagation()}
       />
