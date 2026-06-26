@@ -347,10 +347,13 @@ function Projects({
   );
 }
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: string, alt: string) => void }) {
   return (
     <article className="reveal group bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] transition-all duration-500">
-      <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+      <div
+        className="relative aspect-[16/10] overflow-hidden bg-surface cursor-zoom-in"
+        onClick={() => onImageClick && onImageClick(p.image, p.name)}
+      >
         <img
           src={p.image}
           alt={p.name}
