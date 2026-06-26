@@ -451,11 +451,14 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
   );
 }
 
-function ShowcaseTile({ src, title, className }: { src: string; title: string; className?: string }) {
+function ShowcaseTile({ src, title, className, onImageClick }: { src: string; title: string; className?: string; onImageClick?: (src: string, alt: string) => void }) {
   return (
-    <figure className={`reveal group relative overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] ${className ?? ""}`}>
+    <figure
+      className={`reveal group relative overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] cursor-zoom-in ${className ?? ""}`}
+      onClick={() => onImageClick && onImageClick(src, title)}
+    >
       <img src={src} alt={title} className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
-      <figcaption className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider bg-background/85 backdrop-blur px-2.5 py-1 rounded-full text-foreground border border-border">
+      <figcaption className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider bg-background/85 backdrop-blur px-2.5 py-1 rounded-full text-foreground border border-border pointer-events-none">
         {title}
       </figcaption>
     </figure>
