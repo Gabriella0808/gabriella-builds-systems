@@ -176,22 +176,41 @@ const WORKFLOW_STEPS = [
 
 function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const revealAll = () => els.forEach((el) => el.classList.add("in"));
+    const revealAll = () => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 
     if (typeof IntersectionObserver === "undefined") {
       revealAll();
       return;
     }
+
+    const observed = new WeakSet<Element>();
+
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
-    els.forEach((el) => io.observe(el));
+
+    const observeAll = () => {
+      document.querySelectorAll(".reveal").forEach((el) => {
+        if (!observed.has(el)) {
+          observed.add(el);
+          io.observe(el);
+        }
+      });
+    };
+
+    observeAll();
+
+    // Watch for dynamically added .reveal elements (e.g. when filtering projects)
+    const mo = new MutationObserver(observeAll);
+    mo.observe(document.body, { childList: true, subtree: true });
+
     // Safety fallback: ensure everything is visible after 2s no matter what
     const t = window.setTimeout(revealAll, 2000);
+
     return () => {
       io.disconnect();
+      mo.disconnect();
       window.clearTimeout(t);
     };
   }, []);
