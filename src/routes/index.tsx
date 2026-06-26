@@ -245,7 +245,7 @@ function Hero() {
       <div className="mx-auto max-w-5xl px-6 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border text-xs uppercase tracking-wider text-muted-foreground mb-8 animate-fade-up">
           <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-          Available for new projects
+          My Professional Portfolio
         </div>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
           AI, Web &amp; Systems<br />
