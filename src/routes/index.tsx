@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useMemo } from "react";
 import {
-  ArrowUpRight, ArrowRight, Mail, Linkedin, ExternalLink, Sparkles,
+  ArrowUpRight, ArrowRight, ExternalLink, Sparkles,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
 } from "lucide-react";
@@ -180,7 +180,6 @@ function Portfolio() {
       <Capabilities />
       <WorkflowSection />
       <Services />
-      <Contact />
       <Footer />
     </div>
   );
@@ -200,7 +199,6 @@ function Nav() {
     ["Projects", "#projects"],
     ["Lineage Portal", "#lineage"],
     ["Capabilities", "#capabilities"],
-    ["Contact", "#contact"],
   ];
   return (
     <header
@@ -219,12 +217,6 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#contact"
-          className="hidden sm:inline-flex items-center gap-1.5 text-sm bg-primary text-primary-foreground px-4 py-2 rounded-full hover:opacity-90 transition"
-        >
-          Get in touch <ArrowRight className="w-3.5 h-3.5" />
-        </a>
       </div>
     </header>
   );
@@ -261,12 +253,6 @@ function Hero() {
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
           >
             View Projects <ArrowRight className="w-4 h-4" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
-          >
-            Contact Me
           </a>
         </div>
       </div>
@@ -555,45 +541,6 @@ function Services() {
   );
 }
 
-function Contact() {
-  return (
-    <section id="contact" className="py-28 border-t border-border">
-      <div className="mx-auto max-w-4xl px-6 text-center reveal">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Contact</p>
-        <h2 className="font-display text-5xl md:text-6xl leading-tight">
-          Let's <span className="italic">connect.</span>
-        </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto">
-          For project examples, role opportunities or client work, feel free to get in touch.
-        </p>
-
-        <div className="mt-12 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-          <a
-            href="mailto:gmaccioni0808@gmail.com"
-            className="group bg-card border border-border rounded-2xl p-6 text-left hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all"
-          >
-            <Mail className="w-5 h-5 mb-4" />
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Email</div>
-            <div className="font-medium group-hover:underline break-all">gmaccioni0808@gmail.com</div>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/gabriella-maccioni-a57728b6/"
-            target="_blank" rel="noreferrer"
-            className="group bg-card border border-border rounded-2xl p-6 text-left hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all"
-          >
-            <Linkedin className="w-5 h-5 mb-4" />
-            <div className="text-xs uppercase tracking-wider text-muted-foreground mb-1">LinkedIn</div>
-            <div className="font-medium group-hover:underline">Gabriella Maccioni</div>
-          </a>
-        </div>
-
-        <div className="mt-10 text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">Gabriella Maccioni</span> · AI, Web &amp; Systems Specialist
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Footer() {
   return (
