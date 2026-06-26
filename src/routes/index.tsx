@@ -6,18 +6,18 @@ import {
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
 } from "lucide-react";
 
-import lamicare from "@/assets/lamicare.jpg.asset.json";
-import dermikelpUk from "@/assets/dermikelp-uk.jpg.asset.json";
-import dermikelpZa from "@/assets/dermikelp-za.jpg.asset.json";
-import vetlomar from "@/assets/vetlomar.jpg.asset.json";
-import dealdock from "@/assets/dealdock.jpg.asset.json";
-import cabinetBeds from "@/assets/cabinet-beds.jpg.asset.json";
-import simplebru from "@/assets/simplebru.jpg.asset.json";
-import lineageLogin from "@/assets/lineage-login.png.asset.json";
-import lineageDashboard from "@/assets/lineage-dashboard.png.asset.json";
-import lineageCheckins from "@/assets/lineage-checkins.png.asset.json";
-import lineageProspects from "@/assets/lineage-prospects.png.asset.json";
-import lineageTradeshow from "@/assets/lineage-tradeshow.png.asset.json";
+const lamicare = { url: "/project-screenshots/lamicare.jpg" };
+const dermikelpUk = { url: "/project-screenshots/dermikelp-uk.jpg" };
+const dermikelpZa = { url: "/project-screenshots/dermikelp-za.jpg" };
+const vetlomar = { url: "/project-screenshots/vetlomar.jpg" };
+const dealdock = { url: "/project-screenshots/dealdock.jpg" };
+const cabinetBeds = { url: "/project-screenshots/cabinet-beds.jpg" };
+const simplebru = { url: "/project-screenshots/simplebru.jpg" };
+const lineageLogin = { url: "/project-screenshots/lineage-login.png" };
+const lineageDashboard = { url: "/project-screenshots/lineage-dashboard.png" };
+const lineageCheckins = { url: "/project-screenshots/lineage-checkins.png" };
+const lineageProspects = { url: "/project-screenshots/lineage-prospects.png" };
+const lineageTradeshow = { url: "/project-screenshots/lineage-tradeshow.png" };
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
