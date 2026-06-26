@@ -92,3 +92,8 @@
 
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2,0.7,0.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+/* If JS doesn't run (e.g. in some in-app webviews), still show content */
+html.no-js .reveal { opacity: 1; transform: none; }
