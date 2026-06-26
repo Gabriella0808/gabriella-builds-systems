@@ -166,12 +166,23 @@ const WORKFLOW_STEPS = [
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
+    const revealAll = () => els.forEach((el) => el.classList.add("in"));
+
+    if (typeof IntersectionObserver === "undefined") {
+      revealAll();
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
     els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    // Safety fallback: ensure everything is visible after 2s no matter what
+    const t = window.setTimeout(revealAll, 2000);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, []);
 }
 
