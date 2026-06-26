@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useMemo } from "react";
 import {
-  ArrowUpRight, ArrowRight, ExternalLink, Sparkles,
+  ArrowUpRight, ArrowRight, ExternalLink, Sparkles, X,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
 } from "lucide-react";
@@ -170,17 +170,27 @@ function Portfolio() {
     [filter]
   );
 
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxAlt, setLightboxAlt] = useState<string>("");
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxImage(src);
+    setLightboxAlt(alt);
+  };
+  const closeLightbox = () => setLightboxImage(null);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
       <About />
-      <Projects projects={filtered} filter={filter} setFilter={setFilter} />
-      <LineageShowcase />
+      <Projects projects={filtered} filter={filter} setFilter={setFilter} onImageClick={openLightbox} />
+      <LineageShowcase onImageClick={openLightbox} />
       <Capabilities />
       <WorkflowSection />
       <Services />
       <Footer />
+      {lightboxImage && <Lightbox src={lightboxImage} alt={lightboxAlt} onClose={closeLightbox} />}
     </div>
   );
 }
@@ -297,8 +307,8 @@ function About() {
 }
 
 function Projects({
-  projects, filter, setFilter,
-}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void }) {
+  projects, filter, setFilter, onImageClick,
+}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string) => void }) {
   const cats: Category[] = ["All", "Websites", "eCommerce", "Custom Portals", "CRM & Automation"];
   return (
     <section id="projects" className="py-24 border-t border-border bg-surface/40">
@@ -329,7 +339,7 @@ function Projects({
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
-            <ProjectCard key={p.name} p={p} />
+          <ProjectCard key={p.name} p={p} onImageClick={onImageClick} />
           ))}
         </div>
       </div>
@@ -337,10 +347,13 @@ function Projects({
   );
 }
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: string, alt: string) => void }) {
   return (
     <article className="reveal group bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] transition-all duration-500">
-      <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+      <div
+        className="relative aspect-[16/10] overflow-hidden bg-surface cursor-zoom-in"
+        onClick={() => onImageClick && onImageClick(p.image, p.name)}
+      >
         <img
           src={p.image}
           alt={p.name}
@@ -391,7 +404,7 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
-function LineageShowcase() {
+function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: string) => void }) {
   const features = [
     "Dealer & prospect management",
     "CRM-style account logic",
@@ -418,11 +431,11 @@ function LineageShowcase() {
         </div>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-5">
-          <ShowcaseTile src={lineageDashboard.url} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" />
-          <ShowcaseTile src={lineageLogin.url} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" />
-          <ShowcaseTile src={lineageCheckins.url} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" />
-          <ShowcaseTile src={lineageProspects.url} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" />
-          <ShowcaseTile src={lineageTradeshow.url} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" />
+          <ShowcaseTile src={lineageDashboard.url} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageLogin.url} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageCheckins.url} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageProspects.url} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageTradeshow.url} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-3 reveal">
@@ -438,11 +451,14 @@ function LineageShowcase() {
   );
 }
 
-function ShowcaseTile({ src, title, className }: { src: string; title: string; className?: string }) {
+function ShowcaseTile({ src, title, className, onImageClick }: { src: string; title: string; className?: string; onImageClick?: (src: string, alt: string) => void }) {
   return (
-    <figure className={`reveal group relative overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] ${className ?? ""}`}>
+    <figure
+      className={`reveal group relative overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] cursor-zoom-in ${className ?? ""}`}
+      onClick={() => onImageClick && onImageClick(src, title)}
+    >
       <img src={src} alt={title} className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
-      <figcaption className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider bg-background/85 backdrop-blur px-2.5 py-1 rounded-full text-foreground border border-border">
+      <figcaption className="absolute bottom-3 left-3 text-[11px] uppercase tracking-wider bg-background/85 backdrop-blur px-2.5 py-1 rounded-full text-foreground border border-border pointer-events-none">
         {title}
       </figcaption>
     </figure>
@@ -541,6 +557,39 @@ function Services() {
   );
 }
 
+
+function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/90 backdrop-blur flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition"
+        aria-label="Close"
+      >
+        <X className="w-5 h-5" />
+      </button>
+      <img
+        src={src}
+        alt={alt}
+        className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  );
+}
 
 function Footer() {
   return (
