@@ -6,18 +6,31 @@ import {
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
 } from "lucide-react";
 
-const lamicare = { url: "/project-screenshots/lamicare.jpg" };
-const dermikelpUk = { url: "/project-screenshots/dermikelp-uk.jpg" };
-const dermikelpZa = { url: "/project-screenshots/dermikelp-za.jpg" };
-const vetlomar = { url: "/project-screenshots/vetlomar.jpg" };
-const dealdock = { url: "/project-screenshots/dealdock.jpg" };
-const cabinetBeds = { url: "/project-screenshots/cabinet-beds.jpg" };
-const simplebru = { url: "/project-screenshots/simplebru.jpg" };
-const lineageLogin = { url: "/project-screenshots/lineage-login.png" };
-const lineageDashboard = { url: "/project-screenshots/lineage-dashboard.png" };
-const lineageCheckins = { url: "/project-screenshots/lineage-checkins.png" };
-const lineageProspects = { url: "/project-screenshots/lineage-prospects.png" };
-const lineageTradeshow = { url: "/project-screenshots/lineage-tradeshow.png" };
+import lamicareUrl from "@/assets/projects/lamicare.jpg";
+import dermikelpUkUrl from "@/assets/projects/dermikelp-uk.jpg";
+import dermikelpZaUrl from "@/assets/projects/dermikelp-za.jpg";
+import vetlomarUrl from "@/assets/projects/vetlomar.jpg";
+import dealdockUrl from "@/assets/projects/dealdock.jpg";
+import cabinetBedsUrl from "@/assets/projects/cabinet-beds.jpg";
+import simplebruUrl from "@/assets/projects/simplebru.jpg";
+import lineageLoginUrl from "@/assets/projects/lineage-login.png";
+import lineageDashboardUrl from "@/assets/projects/lineage-dashboard.png";
+import lineageCheckinsUrl from "@/assets/projects/lineage-checkins.png";
+import lineageProspectsUrl from "@/assets/projects/lineage-prospects.png";
+import lineageTradeshowUrl from "@/assets/projects/lineage-tradeshow.png";
+
+const lamicare = { url: lamicareUrl };
+const dermikelpUk = { url: dermikelpUkUrl };
+const dermikelpZa = { url: dermikelpZaUrl };
+const vetlomar = { url: vetlomarUrl };
+const dealdock = { url: dealdockUrl };
+const cabinetBeds = { url: cabinetBedsUrl };
+const simplebru = { url: simplebruUrl };
+const lineageLogin = { url: lineageLoginUrl };
+const lineageDashboard = { url: lineageDashboardUrl };
+const lineageCheckins = { url: lineageCheckinsUrl };
+const lineageProspects = { url: lineageProspectsUrl };
+const lineageTradeshow = { url: lineageTradeshowUrl };
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
