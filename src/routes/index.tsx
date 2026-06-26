@@ -431,11 +431,11 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
         </div>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-5">
-          <ShowcaseTile src={lineageDashboard.url} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" />
-          <ShowcaseTile src={lineageLogin.url} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" />
-          <ShowcaseTile src={lineageCheckins.url} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" />
-          <ShowcaseTile src={lineageProspects.url} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" />
-          <ShowcaseTile src={lineageTradeshow.url} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" />
+          <ShowcaseTile src={lineageDashboard.url} title="Admin workspace" className="lg:col-span-8 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageLogin.url} title="Branded sign-in" className="lg:col-span-4 aspect-[16/9]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageCheckins.url} title="Field check-ins map" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageProspects.url} title="CRM prospects" className="lg:col-span-6 aspect-[16/10]" onImageClick={onImageClick} />
+          <ShowcaseTile src={lineageTradeshow.url} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
         </div>
 
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-3 reveal">
