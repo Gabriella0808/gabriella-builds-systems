@@ -547,9 +547,6 @@ function Capabilities() {
             </div>
           ))}
         </div>
-        <p className="mt-10 max-w-3xl text-muted-foreground reveal leading-relaxed">
-          I can connect lead generation tools like <strong className="text-foreground font-medium">RB2B</strong> and <strong className="text-foreground font-medium">Leadrox</strong> into GoHighLevel, HubSpot, Slack or other channels using Make.com or Zapier — and help set up CRM pipelines, tags, follow-up workflows, lead source tracking, website forms, automation flows and reporting dashboards.
-        </p>
       </div>
     </section>
   );
