@@ -339,7 +339,7 @@ function Projects({
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
-            <ProjectCard key={p.name} p={p} />
+          <ProjectCard key={p.name} p={p} onImageClick={onImageClick} />
           ))}
         </div>
       </div>
