@@ -120,12 +120,12 @@ const PROJECTS: Project[] = [
 ];
 
 const CAPABILITY_GROUPS = [
-  { title: "CRM Tools", icon: Users, items: ["GoHighLevel", "HubSpot"] },
+  { title: "CRM Tools", icon: Users, items: ["GoHighLevel", "HubSpot", "Salesforce"] },
   { title: "Automation", icon: Workflow, items: ["Make.com", "Zapier"] },
-  { title: "Lead Generation", icon: Zap, items: ["RB2B", "Leadrox"] },
+  { title: "Lead Generation", icon: Zap, items: ["RB2B", "Leadrox", "Apollo.io"] },
   { title: "AI Tools", icon: Bot, items: ["Claude", "ChatGPT", "Claude Code"] },
-  { title: "Web & SEO", icon: Search, items: ["WordPress", "WooCommerce", "Shopify", "Google Search Console", "Semrush", "Rank Math"] },
-  { title: "Data & Reporting", icon: Database, items: ["Supabase", "SQL", "Postgres", "Power BI", "Operational dashboards"] },
+  { title: "Web & eCommerce", icon: Search, items: ["WordPress", "WooCommerce", "Shopify", "BigCommerce", "HTML", "CSS", "JavaScript", "Google Search Console", "Semrush"] },
+  { title: "Data & Reporting", icon: Database, items: ["Supabase", "SQL", "Postgres", "Skyvia", "Power BI", "Operational dashboards"] },
 ];
 
 const SERVICES = [
