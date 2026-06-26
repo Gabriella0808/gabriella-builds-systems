@@ -180,7 +180,6 @@ function Portfolio() {
       <Capabilities />
       <WorkflowSection />
       <Services />
-      <Contact />
       <Footer />
     </div>
   );
