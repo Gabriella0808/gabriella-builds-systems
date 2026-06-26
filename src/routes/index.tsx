@@ -170,17 +170,27 @@ function Portfolio() {
     [filter]
   );
 
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxAlt, setLightboxAlt] = useState<string>("");
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxImage(src);
+    setLightboxAlt(alt);
+  };
+  const closeLightbox = () => setLightboxImage(null);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
       <About />
-      <Projects projects={filtered} filter={filter} setFilter={setFilter} />
-      <LineageShowcase />
+      <Projects projects={filtered} filter={filter} setFilter={setFilter} onImageClick={openLightbox} />
+      <LineageShowcase onImageClick={openLightbox} />
       <Capabilities />
       <WorkflowSection />
       <Services />
       <Footer />
+      {lightboxImage && <Lightbox src={lightboxImage} alt={lightboxAlt} onClose={closeLightbox} />}
     </div>
   );
 }
