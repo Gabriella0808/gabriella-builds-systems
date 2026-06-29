@@ -30,7 +30,7 @@ const WORKFLOW_SCREENSHOTS: { src: string; alt: string; platform: string; title:
   { src: makeMondayDatastoreUrl, alt: "Make.com monday.com to Data store scenario", platform: "Make.com", title: "monday.com → Iterator → Data store scenario" },
   { src: zapierZapsListUrl, alt: "Zapier zaps list", platform: "Zapier", title: "Active Zaps — Badger check-ins, rep inactivity alerts" },
   { src: zapierMondayWebhookUrl, alt: "Zapier monday.com webhook workflow", platform: "Zapier", title: "monday.com trigger → Filter → Formatter → Webhook POST" },
-  { src: ghlWorkflowsListUrl, alt: "GoHighLevel workflows list", platform: "GoHighLevel", title: "Lamicare Health — lead nurture, abandoned cart & review workflows" },
+  { src: ghlWorkflowsListUrl, alt: "GoHighLevel Proposal Follow-up Sequence workflow", platform: "GoHighLevel", title: "Proposal Follow-up Sequence — SMS, email & call task cadence" },
   { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel No-Show Reschedule SMS workflow", platform: "GoHighLevel", title: "No-Show Reschedule SMS — wait, contact reply, timeout & tag" },
 ];
 
