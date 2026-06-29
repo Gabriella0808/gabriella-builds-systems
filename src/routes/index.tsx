@@ -586,7 +586,7 @@ function Capabilities() {
   );
 }
 
-function WorkflowSection() {
+function WorkflowSection({ onImageClick }: { onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
   return (
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
@@ -615,6 +615,39 @@ function WorkflowSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-20 reveal">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Real automations I&apos;ve built</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight max-w-3xl">
+            Workflows running in Make.com, Zapier and GoHighLevel.
+          </h3>
+          <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
+            A look inside the tools I use to connect CRMs, sync data, route leads and trigger notifications across teams.
+          </p>
+
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {WORKFLOW_SCREENSHOTS.map((s) => (
+              <button
+                key={s.src}
+                onClick={() => onImageClick(s.src, s.alt)}
+                className="reveal group text-left bg-card border border-border rounded-2xl overflow-hidden hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-surface cursor-zoom-in">
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-5">
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1.5">{s.platform}</p>
+                  <p className="text-sm font-medium leading-snug">{s.title}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
