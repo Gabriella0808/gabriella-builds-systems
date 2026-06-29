@@ -30,8 +30,8 @@ const WORKFLOW_SCREENSHOTS: { src: string; alt: string; platform: string; title:
   { src: makeMondayDatastoreUrl, alt: "Make.com monday.com to Data store scenario", platform: "Make.com", title: "monday.com → Iterator → Data store scenario" },
   { src: zapierZapsListUrl, alt: "Zapier zaps list", platform: "Zapier", title: "Active Zaps — Badger check-ins, rep inactivity alerts" },
   { src: zapierMondayWebhookUrl, alt: "Zapier monday.com webhook workflow", platform: "Zapier", title: "monday.com trigger → Filter → Formatter → Webhook POST" },
-  { src: ghlWorkflowsListUrl, alt: "GoHighLevel workflows list", platform: "GoHighLevel", title: "Workflows dashboard — lead nurture, follow-up, reminders" },
-  { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel workflow builder", platform: "GoHighLevel", title: "Trade show lead nurture — tag, wait, SMS/email, pipeline, Slack" },
+  { src: ghlWorkflowsListUrl, alt: "GoHighLevel workflows list", platform: "GoHighLevel", title: "Lamicare Health — lead nurture, abandoned cart & review workflows" },
+  { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel workflow builder", platform: "GoHighLevel", title: "Lamicare Health — new lead nurture: SMS, email, tag & Slack alert" },
 ];
 
 const lamicare = { url: lamicareUrl };
