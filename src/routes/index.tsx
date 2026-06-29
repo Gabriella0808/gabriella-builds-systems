@@ -31,7 +31,7 @@ const WORKFLOW_SCREENSHOTS: { src: string; alt: string; platform: string; title:
   { src: zapierZapsListUrl, alt: "Zapier zaps list", platform: "Zapier", title: "Active Zaps — Badger check-ins, rep inactivity alerts" },
   { src: zapierMondayWebhookUrl, alt: "Zapier monday.com webhook workflow", platform: "Zapier", title: "monday.com trigger → Filter → Formatter → Webhook POST" },
   { src: ghlWorkflowsListUrl, alt: "GoHighLevel workflows list", platform: "GoHighLevel", title: "Lamicare Health — lead nurture, abandoned cart & review workflows" },
-  { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel workflow builder", platform: "GoHighLevel", title: "Lamicare Health — new lead nurture: SMS, email, tag & Slack alert" },
+  { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel No-Show Reschedule SMS workflow", platform: "GoHighLevel", title: "No-Show Reschedule SMS — wait, contact reply, timeout & tag" },
 ];
 
 const lamicare = { url: lamicareUrl };
