@@ -182,7 +182,7 @@ const PROJECTS: Project[] = [
 
 const PROOF_CARDS = [
   { icon: Briefcase, stat: "8+", label: "Years digital systems experience" },
-  { icon: Globe, stat: "7+", label: "Website & eCommerce projects" },
+  { icon: Globe, stat: "50+", label: "Website & eCommerce projects" },
   { icon: LayoutDashboard, stat: "1", label: "Custom portal built from scratch" },
   { icon: Workflow, stat: "CRM", label: "SEO & automation experience" },
   { icon: GraduationCap, stat: "BSc", label: "Computer Science (in progress)" },
