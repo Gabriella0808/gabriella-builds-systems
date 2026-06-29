@@ -254,7 +254,7 @@ function Portfolio() {
       <Projects projects={filtered} filter={filter} setFilter={setFilter} onImageClick={openLightbox} />
       <LineageShowcase onImageClick={openLightbox} />
       <Capabilities />
-      <WorkflowSection />
+      <WorkflowSection onImageClick={openLightbox} />
       <Services />
       <Footer />
       {lightboxImage && <Lightbox image={lightboxImage} onClose={closeLightbox} />}
