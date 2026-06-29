@@ -34,7 +34,7 @@
   --color-beige: var(--beige);
   --color-beige-deep: var(--beige-deep);
 
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-soft: 0 1px 2px rgb(20 18 14 / 0.04), 0 8px 24px -12px rgb(20 18 14 / 0.08);
