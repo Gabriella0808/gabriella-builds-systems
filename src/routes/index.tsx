@@ -18,6 +18,21 @@ import lineageDashboardUrl from "@/assets/projects/lineage-dashboard.jpg";
 import lineageCheckinsUrl from "@/assets/projects/lineage-checkins.jpg";
 import lineageProspectsUrl from "@/assets/projects/lineage-prospects.jpg";
 import lineageTradeshowUrl from "@/assets/projects/lineage-tradeshow.jpg";
+import makeMondayDatastoreUrl from "@/assets/workflows/make-monday-datastore.jpg";
+import makeScenariosListUrl from "@/assets/workflows/make-scenarios-list.jpg";
+import zapierMondayWebhookUrl from "@/assets/workflows/zapier-monday-webhook.jpg";
+import zapierZapsListUrl from "@/assets/workflows/zapier-zaps-list.jpg";
+import ghlWorkflowBuilderUrl from "@/assets/workflows/ghl-workflow-builder.jpg";
+import ghlWorkflowsListUrl from "@/assets/workflows/ghl-workflows-list.jpg";
+
+const WORKFLOW_SCREENSHOTS: { src: string; alt: string; platform: string; title: string }[] = [
+  { src: makeScenariosListUrl, alt: "Make.com scenarios list", platform: "Make.com", title: "Scenarios overview — monday.com & SQL Server integrations" },
+  { src: makeMondayDatastoreUrl, alt: "Make.com monday.com to Data store scenario", platform: "Make.com", title: "monday.com → Iterator → Data store scenario" },
+  { src: zapierZapsListUrl, alt: "Zapier zaps list", platform: "Zapier", title: "Active Zaps — Badger check-ins, rep inactivity alerts" },
+  { src: zapierMondayWebhookUrl, alt: "Zapier monday.com webhook workflow", platform: "Zapier", title: "monday.com trigger → Filter → Formatter → Webhook POST" },
+  { src: ghlWorkflowsListUrl, alt: "GoHighLevel workflows list", platform: "GoHighLevel", title: "Workflows dashboard — lead nurture, follow-up, reminders" },
+  { src: ghlWorkflowBuilderUrl, alt: "GoHighLevel workflow builder", platform: "GoHighLevel", title: "Trade show lead nurture — tag, wait, SMS/email, pipeline, Slack" },
+];
 
 const lamicare = { url: lamicareUrl };
 const dermikelpUk = { url: dermikelpUkUrl };
