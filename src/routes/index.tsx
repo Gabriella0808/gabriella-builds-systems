@@ -4,6 +4,7 @@ import {
   ArrowUpRight, ArrowRight, ExternalLink, Sparkles, X,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
+  Mail, GraduationCap, Briefcase, Wrench, Award, Map, Hammer, Sliders, ClipboardCheck,
 } from "lucide-react";
 
 import lamicareUrl from "@/assets/projects/lamicare.jpg";
@@ -24,6 +25,8 @@ import zapierMondayWebhookUrl from "@/assets/workflows/zapier-monday-webhook.jpg
 import zapierZapsListUrl from "@/assets/workflows/zapier-zaps-list.jpg";
 import ghlWorkflowBuilderUrl from "@/assets/workflows/ghl-workflow-builder.jpg";
 import ghlWorkflowsListUrl from "@/assets/workflows/ghl-workflows-list.jpg";
+
+const CONTACT_EMAIL = "mailto:";
 
 const WORKFLOW_SCREENSHOTS: { src: string; alt: string; platform: string; title: string }[] = [
   { src: makeScenariosListUrl, alt: "Make.com scenarios list", platform: "Make.com", title: "Scenarios overview — monday.com & SQL Server integrations" },
@@ -63,6 +66,8 @@ type Project = {
   fallbackImage: string;
   description: string;
   skills: string[];
+  role: string;
+  value: string;
 };
 
 const screenshotPath = (filename: string) => `/project-screenshots/${filename}`;
@@ -70,14 +75,17 @@ const screenshotPath = (filename: string) => `/project-screenshots/${filename}`;
 const PROJECTS: Project[] = [
   {
     name: "Lineage Collections Portal",
+    url: "https://lineage-portal.com/",
     category: "Custom Portal / CRM / Reporting / Operations",
     type: "Custom Portal",
     filter: ["Custom Portals", "CRM & Automation"],
     image: lineageTradeshow.url,
     fallbackImage: screenshotPath("lineage-tradeshow.jpg"),
     description:
-      "Custom internal business portal built to centralise dealer accounts, sales activity, CRM-style workflows, inventory visibility, reporting, field check-ins, prospects and trade show leads.",
-    skills: ["Custom build", "CRM logic", "Field check-ins", "Trade show capture", "Analytics", "Permissions", "Data management", "AI-assisted development"],
+      "Custom internal portal centralising dealer accounts, sales activity, CRM-style workflows, field check-ins, trade show leads and reporting.",
+    skills: ["Custom build", "CRM logic", "Field check-ins", "Trade show capture", "Analytics", "Permissions", "AI-assisted dev"],
+    role: "Custom portal build, CRM-style workflows, dealer management, reporting and operations.",
+    value: "Centralised dealer accounts, sales activity, prospect tracking, field check-ins, trade show leads, reporting and internal workflows.",
   },
   {
     name: "Lamicare",
@@ -87,8 +95,10 @@ const PROJECTS: Project[] = [
     filter: ["Websites"],
     image: lamicare.url,
     fallbackImage: screenshotPath("lamicare.jpg"),
-    description: "Managed and supported the company website, content updates, product information, maintenance, SEO support and digital platform improvements.",
+    description: "Ongoing website management, content updates, product information, SEO support and digital platform maintenance.",
     skills: ["Website management", "Content", "SEO support", "Maintenance"],
+    role: "Website management, digital platform support, content updates, SEO support, technical fixes.",
+    value: "Improved website reliability, product visibility, content accuracy and digital platform maintenance.",
   },
   {
     name: "Dermikelp UK",
@@ -98,8 +108,10 @@ const PROJECTS: Project[] = [
     filter: ["eCommerce", "Websites"],
     image: dermikelpUk.url,
     fallbackImage: screenshotPath("dermikelp-uk.jpg"),
-    description: "Supported website updates, product pages, eCommerce functionality, SEO improvements, technical fixes and content management for the UK store.",
+    description: "WooCommerce support, product updates, eCommerce maintenance and SEO support for the UK market.",
     skills: ["WordPress", "WooCommerce", "SEO", "Technical fixes"],
+    role: "WordPress / WooCommerce support, product updates, eCommerce maintenance, SEO support.",
+    value: "Supported product visibility, website updates, technical maintenance and eCommerce functionality for the UK market.",
   },
   {
     name: "Dermikelp South Africa",
@@ -109,8 +121,10 @@ const PROJECTS: Project[] = [
     filter: ["eCommerce", "Websites"],
     image: dermikelpZa.url,
     fallbackImage: screenshotPath("dermikelp-za.jpg"),
-    description: "Managed website updates, product content, SEO structure, Google Search Console checks, metadata, internal linking and ongoing improvements.",
+    description: "Website management, product content, SEO structure, GSC checks, metadata and internal linking.",
     skills: ["WordPress", "WooCommerce", "SEO", "GSC", "Metadata"],
+    role: "Website management, SEO support, Google Search Console checks, metadata, product content, internal linking.",
+    value: "Improved website structure, search visibility support and product content accuracy.",
   },
   {
     name: "Vetlomar",
@@ -120,8 +134,10 @@ const PROJECTS: Project[] = [
     filter: ["Websites"],
     image: vetlomar.url,
     fallbackImage: screenshotPath("vetlomar.jpg"),
-    description: "Supported website management, product updates, content changes, SEO improvements, platform maintenance and digital brand visibility.",
+    description: "Product website support, content updates, SEO support and technical maintenance.",
     skills: ["WordPress", "SEO", "Content", "Maintenance"],
+    role: "Product website support, content updates, SEO support, technical maintenance.",
+    value: "Supported product visibility, website performance and ongoing brand presence.",
   },
   {
     name: "DealDock",
@@ -131,8 +147,10 @@ const PROJECTS: Project[] = [
     filter: ["Websites", "CRM & Automation"],
     image: dealdock.url,
     fallbackImage: screenshotPath("dealdock.jpg"),
-    description: "Built and managed a digital platform focused on lead generation, business visibility and online conversion.",
+    description: "Lead generation and business website focused on online visibility and conversion.",
     skills: ["Lead gen", "Website build", "Conversion", "Management"],
+    role: "Lead generation / business website build and management.",
+    value: "Built and managed a platform focused on online visibility, lead capture and business positioning.",
   },
   {
     name: "Cabinet Beds Microsite",
@@ -142,8 +160,10 @@ const PROJECTS: Project[] = [
     filter: ["Websites", "Custom Portals"],
     image: cabinetBeds.url,
     fallbackImage: screenshotPath("cabinet-beds.jpg"),
-    description: "Focused product microsite for cabinet beds, designed to support product discovery, dealer quote flow and a more direct customer journey.",
+    description: "Focused product microsite supporting product discovery and a dealer quote journey.",
     skills: ["Custom build", "Quote flow", "Product UX", "Edge deploy"],
+    role: "Custom microsite build, product discovery flow, dealer quote journey.",
+    value: "Created a focused product experience to support product education, quote requests and dealer-driven sales flow.",
   },
   {
     name: "Simple Bru Coffee Co",
@@ -153,29 +173,49 @@ const PROJECTS: Project[] = [
     filter: ["eCommerce", "Websites"],
     image: simplebru.url,
     fallbackImage: screenshotPath("simplebru.jpg"),
-    description: "Developed and managed the eCommerce website, including product pages, navigation, checkout flow, content, stock visibility and campaign support.",
+    description: "eCommerce website development, product pages, navigation, checkout flow and content updates.",
     skills: ["eCommerce", "Checkout", "Content", "Campaigns"],
+    role: "eCommerce website development, product pages, navigation, checkout flow, content updates.",
+    value: "Built an online store structure that supported product browsing, online ordering, stock visibility and campaign updates.",
   },
 ];
 
-const CAPABILITY_GROUPS = [
-  { title: "CRM Tools", icon: Users, items: ["GoHighLevel", "HubSpot", "Salesforce"] },
-  { title: "Automation", icon: Workflow, items: ["Make.com", "Zapier"] },
-  { title: "Lead Generation", icon: Zap, items: ["RB2B", "Leadrox", "Apollo.io"] },
-  { title: "AI Tools", icon: Bot, items: ["Claude", "ChatGPT", "Claude Code"] },
-  { title: "Web & eCommerce", icon: Search, items: ["WordPress", "WooCommerce", "Shopify", "BigCommerce", "HTML", "CSS", "JavaScript", "Google Search Console", "Semrush"] },
-  { title: "Data & Reporting", icon: Database, items: ["Supabase", "SQL", "Postgres", "Skyvia", "Power BI", "Operational dashboards"] },
+const PROOF_CARDS = [
+  { icon: Briefcase, stat: "8+", label: "Years digital systems experience" },
+  { icon: Globe, stat: "7+", label: "Website & eCommerce projects" },
+  { icon: LayoutDashboard, stat: "1", label: "Custom portal built from scratch" },
+  { icon: Workflow, stat: "CRM", label: "SEO & automation experience" },
+  { icon: GraduationCap, stat: "BSc", label: "Computer Science (in progress)" },
 ];
 
-const SERVICES = [
-  { icon: Globe, title: "Website Development", text: "Build, manage and improve WordPress, WooCommerce, Shopify and custom websites." },
-  { icon: Search, title: "SEO Support", text: "Metadata, page structure, internal linking, content, technical health and Google Search Console visibility." },
-  { icon: LayoutDashboard, title: "Custom Portals", text: "Internal portals, dashboards, CRM views and workflow systems for business operations." },
-  { icon: Users, title: "CRM Setup", text: "GoHighLevel and HubSpot pipelines, tags, lead stages, forms, workflows and reporting." },
-  { icon: Plug, title: "Integrations", text: "Connect tools using Make.com, Zapier, APIs, Slack, CRM systems, lead gen tools and reporting." },
-  { icon: Bot, title: "AI Automation", text: "Claude, ChatGPT and Claude Code for workflow planning, content, documentation and automation logic." },
-  { icon: BarChart3, title: "Reporting", text: "Dashboards and reporting views for leads, sales activity, campaigns, inventory and operations." },
-  { icon: ShoppingCart, title: "eCommerce", text: "Product pages, checkout flow, stock visibility, campaign support and conversion improvements." },
+const SYSTEMS = [
+  { icon: Globe, title: "Websites & eCommerce", text: "WordPress, WooCommerce, Shopify, product pages, landing pages, checkout flows, content updates and technical fixes." },
+  { icon: LayoutDashboard, title: "Custom Portals", text: "Internal tools, dealer portals, CRM views, dashboards, role-based access and operational workflows." },
+  { icon: Users, title: "CRM Systems", text: "GoHighLevel, HubSpot — pipelines, lead stages, tags, forms, follow-up workflows and reporting." },
+  { icon: Workflow, title: "Automation Workflows", text: "Make.com, Zapier, Slack alerts, lead routing, CRM updates, email workflows and reporting flows." },
+  { icon: Zap, title: "Lead Generation Systems", text: "RB2B, Leadrox, lead intent tracking, website visitor identification and CRM follow-up workflows." },
+  { icon: Search, title: "SEO Support", text: "Google Search Console, Semrush, metadata, internal linking, content updates, service and product pages, technical SEO checks." },
+  { icon: Bot, title: "AI-Assisted Systems", text: "Claude, ChatGPT and Claude Code for workflow planning, content support, documentation and faster development." },
+  { icon: BarChart3, title: "Reporting & Visibility", text: "Dashboards, operational reporting, lead tracking, campaign reporting and business process visibility." },
+];
+
+const TOOL_GROUPS = [
+  { title: "AI", icon: Bot, items: ["Claude", "ChatGPT", "Claude Code"] },
+  { title: "CRM", icon: Users, items: ["GoHighLevel", "HubSpot", "Salesforce"] },
+  { title: "Automation", icon: Workflow, items: ["Make.com", "Zapier"] },
+  { title: "Lead Generation", icon: Zap, items: ["RB2B", "Leadrox", "Apollo.io"] },
+  { title: "Web & eCommerce", icon: Globe, items: ["WordPress", "WooCommerce", "Shopify", "BigCommerce", "HTML", "CSS", "JavaScript"] },
+  { title: "SEO", icon: Search, items: ["Google Search Console", "Semrush", "Google Analytics"] },
+  { title: "Data & Reporting", icon: Database, items: ["Supabase", "SQL", "Postgres", "Power BI"] },
+  { title: "Operations", icon: Sliders, items: ["Monday.com", "Mailchimp", "Skyvia", "QuickBooks", "Acctivate", "AWS LightSail"] },
+];
+
+const HOW_I_WORK = [
+  { icon: ClipboardCheck, title: "Audit", text: "I review the website, CRM, lead flow, SEO setup, current tools and manual processes." },
+  { icon: Map, title: "Map", text: "I map the customer journey, data flow, workflows and automation opportunities." },
+  { icon: Hammer, title: "Build", text: "I create or improve websites, portals, CRM workflows, automations and reporting systems." },
+  { icon: Plug, title: "Connect", text: "I integrate GoHighLevel, HubSpot, Make.com, Zapier, RB2B, Leadrox, Slack and reporting platforms." },
+  { icon: Wrench, title: "Improve", text: "I test, refine, document and improve the system so it is easier to manage long term." },
 ];
 
 const WORKFLOW_STEPS = [
@@ -216,11 +256,9 @@ function useReveal() {
 
     observeAll();
 
-    // Watch for dynamically added .reveal elements (e.g. when filtering projects)
     const mo = new MutationObserver(observeAll);
     mo.observe(document.body, { childList: true, subtree: true });
 
-    // Safety fallback: ensure everything is visible after 2s no matter what
     const t = window.setTimeout(revealAll, 2000);
 
     return () => {
@@ -240,6 +278,7 @@ function Portfolio() {
   );
 
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string; fallbackSrc?: string } | null>(null);
+  const [openProject, setOpenProject] = useState<Project | null>(null);
 
   const openLightbox = (src: string, alt: string, fallbackSrc?: string) => {
     setLightboxImage({ src, alt, fallbackSrc });
@@ -250,14 +289,19 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <ProofSnapshot />
       <About />
-      <Projects projects={filtered} filter={filter} setFilter={setFilter} onImageClick={openLightbox} />
+      <Projects projects={filtered} filter={filter} setFilter={setFilter} onImageClick={openLightbox} onOpenDetails={setOpenProject} />
       <LineageShowcase onImageClick={openLightbox} />
-      <Capabilities />
-      <WorkflowSection onImageClick={openLightbox} />
-      <Services />
+      <SystemsSection />
+      <WorkflowSection />
+      <HowIWorkSection />
+      <ToolsSection />
+      <CredibilityNote />
+      <CTASection />
       <Footer />
       {lightboxImage && <Lightbox image={lightboxImage} onClose={closeLightbox} />}
+      {openProject && <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />}
     </div>
   );
 }
@@ -275,7 +319,8 @@ function Nav() {
     ["Home", "#home"],
     ["Projects", "#projects"],
     ["Lineage Portal", "#lineage"],
-    ["Capabilities", "#capabilities"],
+    ["Systems", "#systems"],
+    ["Tools", "#tools"],
   ];
   return (
     <header
@@ -301,7 +346,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-36 pb-28 overflow-hidden">
+    <section id="home" className="relative pt-36 pb-24 overflow-hidden">
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -318,11 +363,8 @@ function Hero() {
           AI, Web &amp; Systems<br />
           <span className="italic text-muted-foreground">Specialist.</span>
         </h1>
-        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "140ms" }}>
-          Website development, custom portals, CRM workflows, SEO support, automations and systems integration.
-        </p>
-        <p className="mt-6 text-base text-muted-foreground/90 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "220ms" }}>
-          I build practical digital solutions that improve visibility, reduce manual work and help businesses manage leads, customers, products and internal processes more effectively.
+        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: "140ms" }}>
+          I build and improve websites, custom portals, CRM workflows, automations and reporting systems that help businesses reduce manual work, improve visibility and manage leads, customers and operations more effectively.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up" style={{ animationDelay: "300ms" }}>
           <a
@@ -331,18 +373,44 @@ function Hero() {
           >
             View Projects <ArrowRight className="w-4 h-4" />
           </a>
+          <a
+            href="#lineage"
+            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
+          >
+            View Lineage Portal Case Study
+          </a>
         </div>
       </div>
     </section>
   );
 }
 
+function ProofSnapshot() {
+  return (
+    <section className="pb-8 -mt-4">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          {PROOF_CARDS.map(({ icon: Icon, stat, label }, i) => (
+            <div
+              key={label}
+              className="reveal bg-card border border-border rounded-2xl p-5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              style={{ transitionDelay: `${i * 40}ms` }}
+            >
+              <Icon className="w-4 h-4 text-muted-foreground mb-3" />
+              <div className="font-display text-2xl md:text-3xl leading-none">{stat}</div>
+              <div className="text-xs text-muted-foreground mt-2 leading-snug">{label}</div>
+            </div>
+          ))}
+        </div>
+        <p className="reveal text-sm text-muted-foreground text-center mt-6 max-w-3xl mx-auto">
+          A practical portfolio across web development, eCommerce, CRM workflows, SEO, systems integration and operational reporting.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function About() {
-  const stats = [
-    ["8+", "Years experience"],
-    ["20+", "Platforms & tools"],
-    ["BSc", "Computer Science — UoL"],
-  ];
   return (
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-start">
@@ -359,14 +427,6 @@ function About() {
           <p>
             Hands-on with WordPress, WooCommerce, Shopify, custom portals, HubSpot, GoHighLevel, Make.com, Zapier, RB2B, Leadrox, Mailchimp, Supabase, SQL, Claude and ChatGPT — comfortable across both the technical and business side.
           </p>
-          <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border">
-            {stats.map(([n, l]) => (
-              <div key={l}>
-                <div className="font-display text-3xl text-foreground">{n}</div>
-                <div className="text-xs mt-1">{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -374,8 +434,8 @@ function About() {
 }
 
 function Projects({
-  projects, filter, setFilter, onImageClick,
-}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
+  projects, filter, setFilter, onImageClick, onOpenDetails,
+}: { projects: Project[]; filter: Category; setFilter: (c: Category) => void; onImageClick: (src: string, alt: string, fallbackSrc?: string) => void; onOpenDetails: (p: Project) => void }) {
   const cats: Category[] = ["All", "Websites", "eCommerce", "Custom Portals", "CRM & Automation"];
   return (
     <section id="projects" className="py-24 border-t border-border bg-surface/40">
@@ -406,7 +466,7 @@ function Projects({
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
-          <ProjectCard key={p.name} p={p} onImageClick={onImageClick} />
+            <ProjectCard key={p.name} p={p} onImageClick={onImageClick} onOpenDetails={onOpenDetails} />
           ))}
         </div>
 
@@ -447,9 +507,9 @@ function Projects({
   );
 }
 
-function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: string, alt: string, fallbackSrc?: string) => void }) {
+function ProjectCard({ p, onImageClick, onOpenDetails }: { p: Project; onImageClick?: (src: string, alt: string, fallbackSrc?: string) => void; onOpenDetails: (p: Project) => void }) {
   return (
-    <article className="reveal group bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] transition-all duration-500">
+    <article className="reveal group bg-card rounded-2xl border border-border overflow-hidden hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] transition-all duration-500 flex flex-col">
       <div
         className="relative aspect-[16/10] overflow-hidden bg-surface cursor-zoom-in"
         onClick={() => onImageClick && onImageClick(p.image, p.name, p.fallbackImage)}
@@ -461,7 +521,7 @@ function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: str
           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
         />
       </div>
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-3 mb-2">
           <h3 className="font-display text-2xl leading-tight">{p.name}</h3>
           {p.url && (
@@ -479,54 +539,122 @@ function ProjectCard({ p, onImageClick }: { p: Project; onImageClick?: (src: str
         <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4">{p.category}</p>
         <p className="text-sm text-muted-foreground leading-relaxed mb-5">{p.description}</p>
         <div className="flex flex-wrap gap-1.5 mb-5">
-          {p.skills.map((s) => (
+          {p.skills.slice(0, 5).map((s) => (
             <span key={s} className="text-[11px] px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground">
               {s}
             </span>
           ))}
         </div>
-        {p.url ? (
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:gap-2.5 transition-all"
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <button
+            onClick={() => onOpenDetails(p)}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:gap-2.5 transition-all cursor-pointer"
           >
-            Visit site <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        ) : (
-          <a href="#lineage" className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:gap-2.5 transition-all">
-            View case study <ArrowRight className="w-3.5 h-3.5" />
-          </a>
-        )}
+            View details <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+          {p.url && (
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition"
+            >
+              Visit <ExternalLink className="w-3 h-3" />
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
 }
 
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-[100] bg-black/70 backdrop-blur flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200" onClick={onClose}>
+      <div
+        className="bg-background border border-border rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface">
+          <ReliableImage src={project.image} fallbackSrc={project.fallbackImage} alt={project.name} className="w-full h-full object-cover object-top" />
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center hover:bg-background transition"
+            aria-label="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="p-7 md:p-9">
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">{project.category}</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-5">{project.name}</h3>
+          <p className="text-muted-foreground leading-relaxed mb-7">{project.description}</p>
+          <div className="grid sm:grid-cols-2 gap-5 mb-7">
+            <div className="bg-surface border border-border rounded-xl p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">My role</p>
+              <p className="text-sm leading-relaxed">{project.role}</p>
+            </div>
+            <div className="bg-surface border border-border rounded-xl p-5">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Business value</p>
+              <p className="text-sm leading-relaxed">{project.value}</p>
+            </div>
+          </div>
+          <div className="mb-7">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Tools &amp; skills</p>
+            <div className="flex flex-wrap gap-1.5">
+              {project.skills.map((s) => (
+                <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground">{s}</span>
+              ))}
+            </div>
+          </div>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition"
+            >
+              Visit site <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
   const features = [
-    "Dealer & prospect management",
-    "CRM-style account logic",
-    "Sales rep workflows",
-    "Field check-in tracking",
-    "Map-based dealer visibility",
+    "Dealer account management",
+    "CRM-style prospect logic",
+    "Field check-in map",
     "Trade show lead capture",
-    "Analytics dashboards",
+    "Sales activity tracking",
+    "Dashboard reporting",
     "User permissions",
-    "Data cleanup & reporting",
-    "Operational workflow support",
+    "Data cleanup",
+    "Operational workflows",
   ];
   return (
     <section id="lineage" className="py-28 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Case study</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Featured case study</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Custom Portal Build: <span className="italic">Lineage Collections</span>
+            <span className="italic">Lineage Collections</span> Portal
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            A custom internal portal built to centralise sales operations, dealer management, CRM-style workflows, field check-ins, trade show lead tracking, reporting and internal business processes.
+            A custom internal portal built to centralise sales operations, CRM-style workflows, dealer activity and reporting.
           </p>
         </div>
 
@@ -538,13 +666,37 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
           <ShowcaseTile src={lineageTradeshow.url} fallbackSrc={screenshotPath("lineage-tradeshow.jpg")} title="Trade show analytics" className="lg:col-span-12 aspect-[21/9]" onImageClick={onImageClick} />
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-5 gap-3 reveal">
+        <div className="mt-12 grid md:grid-cols-3 gap-3 reveal">
           {features.map((f) => (
             <div key={f} className="flex items-center gap-2 bg-card border border-border rounded-xl px-4 py-3 text-sm">
               <CheckCircle2 className="w-4 h-4 text-foreground/70 shrink-0" />
               <span className="text-muted-foreground">{f}</span>
             </div>
           ))}
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-3 gap-5 reveal">
+          {[
+            { label: "Problem", text: "Sales, dealer, prospect and operational information was spread across disconnected systems and manual workflows." },
+            { label: "Solution", text: "Built a custom portal with CRM-style account management, sales tools, field check-ins, lead tracking, reporting areas and operational visibility." },
+            { label: "Result", text: "Created a more centralised system for managing dealer activity, prospects, sales workflows, trade show leads and reporting." },
+          ].map((item) => (
+            <div key={item.label} className="bg-card border border-border rounded-2xl p-7">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">{item.label}</p>
+              <p className="text-sm leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 reveal">
+          <a
+            href="https://lineage-portal.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all"
+          >
+            Visit lineage-portal.com <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
       </div>
     </section>
@@ -589,23 +741,125 @@ function ReliableImage({ src, fallbackSrc, alt, className, onClick }: { src: str
   );
 }
 
-function Capabilities() {
+function SystemsSection() {
   return (
-    <section id="capabilities" className="py-24 border-t border-border bg-surface/40">
+    <section id="systems" className="py-24 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Stack</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Capabilities</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Systems, CRM &amp; Automation Capabilities
+            Systems I can build.
           </h2>
         </div>
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CAPABILITY_GROUPS.map(({ title, icon: Icon, items }) => (
-            <div key={title} className="reveal group bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500">
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {SYSTEMS.map(({ icon: Icon, title, text }, i) => (
+            <div
+              key={title}
+              className="reveal bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              style={{ transitionDelay: `${i * 40}ms` }}
+            >
               <div className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-5">
                 <Icon className="w-5 h-5" />
               </div>
-              <h3 className="font-display text-2xl mb-3">{title}</h3>
+              <h3 className="font-display text-xl mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WorkflowSection() {
+  return (
+    <section className="py-24 border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-3xl reveal">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Example lead automation workflow</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+            From anonymous visitor to tracked, tagged lead.
+          </h2>
+          <p className="mt-5 text-muted-foreground leading-relaxed">
+            This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create clearer visibility over where leads are coming from.
+          </p>
+        </div>
+
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 reveal">
+          {WORKFLOW_STEPS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.title} className="relative bg-card border border-border rounded-xl p-5 hover:shadow-[var(--shadow-soft)] transition" style={{ transitionDelay: `${i * 30}ms` }}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <span className="font-display text-lg text-muted-foreground">0{i + 1}</span>
+                </div>
+                <p className="text-sm font-medium leading-snug">{s.title}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowIWorkSection() {
+  return (
+    <section id="process" className="py-24 border-t border-border bg-surface/40">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-3xl reveal">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">How I work</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+            A clear process from audit to long-term improvement.
+          </h2>
+        </div>
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+          {HOW_I_WORK.map(({ icon: Icon, title, text }, i) => (
+            <div
+              key={title}
+              className="reveal bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center">
+                  <Icon className="w-4 h-4" />
+                </div>
+                <span className="font-display text-sm text-muted-foreground">0{i + 1}</span>
+              </div>
+              <h3 className="font-display text-xl mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ToolsSection() {
+  return (
+    <section id="tools" className="py-24 border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-3xl reveal">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Tools &amp; platforms</p>
+          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+            The stack I use day-to-day.
+          </h2>
+        </div>
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {TOOL_GROUPS.map(({ title, icon: Icon, items }, i) => (
+            <div
+              key={title}
+              className="reveal group bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              style={{ transitionDelay: `${i * 40}ms` }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5" />
+              </div>
+              <h3 className="font-display text-xl mb-3">{title}</h3>
               <div className="flex flex-wrap gap-1.5">
                 {items.map((i) => (
                   <span key={i} className="text-xs px-2.5 py-1 rounded-full bg-surface border border-border text-muted-foreground">{i}</span>
@@ -619,66 +873,56 @@ function Capabilities() {
   );
 }
 
-function WorkflowSection({ onImageClick }: { onImageClick: (src: string, alt: string, fallbackSrc?: string) => void }) {
+function CredibilityNote() {
   return (
-    <section className="py-24 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Example workflow</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            From anonymous visitor to tracked, tagged lead.
-          </h2>
-          <p className="mt-5 text-muted-foreground leading-relaxed">
-            This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create better visibility over where leads are coming from.
-          </p>
-        </div>
-
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 reveal">
-          {WORKFLOW_STEPS.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.title} className="relative bg-card border border-border rounded-xl p-5 hover:shadow-[var(--shadow-soft)] transition">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center">
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <span className="font-display text-lg text-muted-foreground">0{i + 1}</span>
-                </div>
-                <p className="text-sm font-medium leading-snug">{s.title}</p>
-              </div>
-            );
-          })}
-        </div>
-
+    <section className="py-20 border-t border-border bg-surface/40">
+      <div className="mx-auto max-w-4xl px-6 text-center reveal">
+        <Award className="w-5 h-5 mx-auto mb-5 text-muted-foreground" />
+        <p className="font-display text-2xl md:text-3xl leading-snug text-foreground">
+          I am not only focused on making websites look better.
+        </p>
+        <p className="mt-5 text-muted-foreground leading-relaxed">
+          My focus is on how the website connects into lead capture, CRM follow-up, automation, SEO and reporting. The goal is always to make the business easier to run and easier to measure.
+        </p>
       </div>
     </section>
   );
 }
 
-function Services() {
+function CTASection() {
   return (
-    <section className="py-24 border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">What I help with</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Services for teams that need to ship and operate.
-          </h2>
-        </div>
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {SERVICES.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="reveal bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500">
-              <Icon className="w-5 h-5 mb-5" />
-              <h3 className="font-display text-xl mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
-            </div>
-          ))}
+    <section id="contact" className="py-28 border-t border-border">
+      <div className="mx-auto max-w-4xl px-6 text-center reveal">
+        <h2 className="font-display text-4xl md:text-5xl leading-tight">
+          Need someone who can connect websites, CRM, SEO and automation?
+        </h2>
+        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          I help businesses improve their digital systems by building practical websites, portals, CRM workflows, automations and reporting processes.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href={CONTACT_EMAIL}
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
+            <Mail className="w-4 h-4" /> Email Me
+          </a>
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
+          >
+            View Projects
+          </a>
+          <a
+            href="#lineage"
+            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
+          >
+            View Lineage Portal Case Study
+          </a>
         </div>
       </div>
     </section>
   );
 }
-
 
 function Lightbox({ image, onClose }: { image: { src: string; alt: string; fallbackSrc?: string }; onClose: () => void }) {
   useEffect(() => {
