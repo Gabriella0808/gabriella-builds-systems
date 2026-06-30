@@ -4,7 +4,7 @@ import {
   ArrowUpRight, ArrowRight, ExternalLink, Sparkles, X,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
-  Mail, GraduationCap, Briefcase, Wrench, Award, Map, Hammer, Sliders, ClipboardCheck,
+  Mail, GraduationCap, Briefcase, Wrench, Award, Map as MapIcon, Hammer, Sliders, ClipboardCheck,
   Sun, Moon,
 } from "lucide-react";
 
