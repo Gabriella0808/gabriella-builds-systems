@@ -785,26 +785,26 @@ function ReliableImage({ src, fallbackSrc, alt, className, onClick }: { src: str
 
 function SystemsSection() {
   return (
-    <section id="systems" className="py-24 border-t border-border bg-surface/40">
+    <section id="systems" className="py-24 border-t border-white/10 bg-[#1c1917]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">05 / Capabilities</p>
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">
-            Systems <span className="italic text-muted-foreground">I can build.</span>
+          <p className="text-xs uppercase tracking-widest text-white/60 mb-4">05 / Capabilities</p>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight text-white">
+            Systems <span className="italic text-white/60">I can build.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {SYSTEMS.map(({ icon: Icon, title, text }, i) => (
             <div
               key={title}
-              className="reveal bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              className="reveal bg-[#23201d] border border-white/10 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
               style={{ transitionDelay: `${i * 40}ms` }}
             >
-              <div className="w-10 h-10 rounded-lg bg-surface border border-border flex items-center justify-center mb-5">
-                <Icon className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5 text-white/80" />
               </div>
-              <h3 className="font-display text-xl mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+              <h3 className="font-display text-xl mb-2 text-white">{title}</h3>
+              <p className="text-sm text-white/70 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
