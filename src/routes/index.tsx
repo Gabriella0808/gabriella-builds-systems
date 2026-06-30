@@ -388,11 +388,11 @@ function Hero() {
             <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-muted-foreground mb-7 block animate-fade-up">
               01 / My Professional Portfolio
             </span>
-            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.88] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
               Gabriella<br />
               <span className="italic text-muted-foreground">Maccioni</span>
             </h1>
-            <p className="mt-9 text-lg md:text-xl font-light leading-relaxed max-w-2xl text-foreground/80 animate-fade-up" style={{ animationDelay: "140ms" }}>
+            <p className="mt-6 text-base md:text-lg font-light leading-relaxed max-w-2xl text-foreground/80 animate-fade-up" style={{ animationDelay: "140ms" }}>
               AI, Web &amp; Systems Specialist building high-performance eCommerce, custom portals, CRM workflows and automated systems that help businesses run leaner and measure smarter.
             </p>
           </div>
@@ -440,7 +440,7 @@ function ProofSnapshot() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-0 md:divide-x divide-border border-y border-border py-10 reveal">
           {PROOF_CARDS.map(({ stat, label }) => (
             <div key={label} className="md:px-6 first:md:pl-0 last:md:pr-0">
-              <div className="font-display italic text-5xl md:text-6xl leading-none mb-3">{stat}</div>
+              <div className="font-display italic text-3xl md:text-4xl leading-none mb-2">{stat}</div>
               <div className="text-[10px] uppercase tracking-widest text-muted-foreground leading-snug">{label}</div>
             </div>
           ))}
@@ -459,8 +459,8 @@ function About() {
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-start">
         <div className="reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">02 / About</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Practical digital systems,<br /><span class="italic text-muted-foreground">built end-to-end.</span>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+            Practical digital systems,<br /><span className="italic text-muted-foreground">built end-to-end.</span>
           </h2>
         </div>
         <div className="reveal space-y-5 text-muted-foreground leading-relaxed">
@@ -486,8 +486,8 @@ function Projects({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 reveal">
           <div>
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">03 / Selected works</p>
-            <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Selected projects across web,<br />eCommerce &amp; <span class="italic text-muted-foreground">custom systems.</span>
+            <h2 className="font-display text-3xl md:text-4xl leading-tight max-w-2xl">
+              Selected projects across web,<br />eCommerce &amp; <span className="italic text-muted-foreground">custom systems.</span>
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -515,8 +515,8 @@ function Projects({
 
         <div className="mt-20 reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">— Live automations</p>
-          <h3 className="font-display text-3xl md:text-4xl leading-tight max-w-3xl">
-            Workflows running in Make.com, Zapier <span class="italic text-muted-foreground">and GoHighLevel.</span>
+          <h3 className="font-display text-2xl md:text-3xl leading-tight max-w-3xl">
+            Workflows running in Make.com, Zapier <span className="italic text-muted-foreground">and GoHighLevel.</span>
           </h3>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
             A look inside the tools I use to connect CRMs, sync data, route leads and trigger notifications across teams.
@@ -640,7 +640,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </div>
         <div className="p-7 md:p-9">
           <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">{project.category}</p>
-          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-5">{project.name}</h3>
+          <h3 className="font-display text-2xl md:text-3xl leading-tight mb-4">{project.name}</h3>
           <p className="text-muted-foreground leading-relaxed mb-7">{project.description}</p>
           <div className="grid sm:grid-cols-2 gap-5 mb-7">
             <div className="bg-surface border border-border rounded-xl p-5">
@@ -693,10 +693,10 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">04 / Featured case study</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
             <span className="italic">Lineage Collections</span> Portal
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 text-base text-muted-foreground leading-relaxed">
             A custom internal portal built to centralise sales operations, CRM-style workflows, dealer activity and reporting.
           </p>
         </div>
@@ -790,8 +790,8 @@ function SystemsSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">05 / Capabilities</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Systems <span class="italic text-muted-foreground">I can build.</span>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+            Systems <span className="italic text-muted-foreground">I can build.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -820,8 +820,8 @@ function WorkflowSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">06 / Lead automation</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            From anonymous visitor to<br /><span class="italic text-muted-foreground">tracked, tagged lead.</span>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+            From anonymous visitor to<br /><span className="italic text-muted-foreground">tracked, tagged lead.</span>
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create clearer visibility over where leads are coming from.
@@ -855,8 +855,8 @@ function HowIWorkSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">07 / Methodology</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            A clear process from audit to<br /><span class="italic text-muted-foreground">long-term improvement.</span>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+            A clear process from audit to<br /><span className="italic text-muted-foreground">long-term improvement.</span>
           </h2>
         </div>
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -888,8 +888,8 @@ function ToolsSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">08 / Toolkit</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            The stack I use <span class="italic text-muted-foreground">day-to-day.</span>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+            The stack I use <span className="italic text-muted-foreground">day-to-day.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -921,7 +921,7 @@ function CredibilityNote() {
     <section className="py-20 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-4xl px-6 text-center reveal">
         <Award className="w-5 h-5 mx-auto mb-5 text-muted-foreground" />
-        <p className="font-display text-2xl md:text-3xl leading-snug text-foreground">
+        <p className="font-display text-xl md:text-2xl leading-snug text-foreground">
           I am not only focused on making websites look better.
         </p>
         <p className="mt-5 text-muted-foreground leading-relaxed">
@@ -937,11 +937,11 @@ function CTASection() {
     <section id="contact" className="py-32 border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-5xl px-6 text-center reveal">
         <p className="text-[10px] uppercase tracking-[0.4em] opacity-60 mb-10">— Let&apos;s work together</p>
-        <h2 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tight">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight">
           Building systems<br />
           <span className="italic opacity-90">that quietly run the business.</span>
         </h2>
-        <p className="mt-10 text-lg opacity-70 max-w-2xl mx-auto leading-relaxed font-light">
+        <p className="mt-8 text-base opacity-70 max-w-2xl mx-auto leading-relaxed font-light">
           I help businesses connect websites, CRM, SEO and automation into one system that&apos;s easier to manage and easier to measure.
         </p>
         <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
