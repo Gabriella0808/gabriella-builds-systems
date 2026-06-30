@@ -374,27 +374,47 @@ function ThemeToggle() {
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-36 pb-24 overflow-hidden">
+    <section id="home" className="relative pt-36 pb-20 overflow-hidden">
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, var(--surface) 0%, var(--background) 60%)",
+            "radial-gradient(ellipse 90% 60% at 50% 0%, var(--surface) 0%, var(--background) 65%)",
         }}
       />
-      <div className="mx-auto max-w-5xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border text-xs uppercase tracking-wider text-muted-foreground mb-8 animate-fade-up">
-          <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-          My Professional Portfolio
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10">
+          <div className="max-w-4xl">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-muted-foreground mb-7 block animate-fade-up">
+              01 / My Professional Portfolio
+            </span>
+            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.88] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
+              Gabriella<br />
+              <span className="italic text-muted-foreground">Maccioni</span>
+            </h1>
+            <p className="mt-9 text-lg md:text-xl font-light leading-relaxed max-w-2xl text-foreground/80 animate-fade-up" style={{ animationDelay: "140ms" }}>
+              AI, Web &amp; Systems Specialist building high-performance eCommerce, custom portals, CRM workflows and automated systems that help businesses run leaner and measure smarter.
+            </p>
+          </div>
+          <div className="flex flex-col gap-5 md:border-l md:border-border md:pl-8 md:pt-2 animate-fade-up" style={{ animationDelay: "220ms" }}>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Based</p>
+              <p className="text-sm font-medium">Remote / Global</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Focus</p>
+              <p className="text-sm font-medium">Web · CRM · Automation</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Currently</p>
+              <p className="text-sm font-medium inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
+                Open to collaboration
+              </p>
+            </div>
+          </div>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
-          AI, Web &amp; Systems<br />
-          <span className="italic text-muted-foreground">Specialist.</span>
-        </h1>
-        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: "140ms" }}>
-          I build and improve websites, custom portals, CRM workflows, automations and reporting systems that help businesses reduce manual work, improve visibility and manage leads, customers and operations more effectively.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up" style={{ animationDelay: "300ms" }}>
+        <div className="mt-14 flex flex-wrap items-center gap-3 animate-fade-up" style={{ animationDelay: "300ms" }}>
           <a
             href="#projects"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
@@ -405,7 +425,7 @@ function Hero() {
             href="#lineage"
             className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
           >
-            View Lineage Portal Case Study
+            Lineage Portal Case Study
           </a>
         </div>
       </div>
