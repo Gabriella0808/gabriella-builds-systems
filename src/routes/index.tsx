@@ -850,29 +850,29 @@ function WorkflowSection() {
 
 function HowIWorkSection() {
   return (
-    <section id="process" className="py-24 border-t border-border bg-surface/40">
+    <section id="process" className="py-24 border-t border-white/10 bg-[#1c1917]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">07 / Methodology</p>
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">
-            A clear process from audit to<br /><span className="italic text-muted-foreground">long-term improvement.</span>
+          <p className="text-xs uppercase tracking-widest text-white/60 mb-4">07 / Methodology</p>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight text-white">
+            A clear process from audit to<br /><span className="italic text-white/60">long-term improvement.</span>
           </h2>
         </div>
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
           {HOW_I_WORK.map(({ icon: Icon, title, text }, i) => (
             <div
               key={title}
-              className="reveal bg-card border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
+              className="reveal bg-[#23201d] border border-white/10 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <div className="flex items-center justify-between mb-5">
-                <div className="w-9 h-9 rounded-lg bg-surface border border-border flex items-center justify-center">
-                  <Icon className="w-4 h-4" />
+                <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-white/80" />
                 </div>
-                <span className="font-display text-sm text-muted-foreground">0{i + 1}</span>
+                <span className="font-display text-sm text-white/60">0{i + 1}</span>
               </div>
-              <h3 className="font-display text-xl mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+              <h3 className="font-display text-xl mb-2 text-white">{title}</h3>
+              <p className="text-sm text-white/70 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
