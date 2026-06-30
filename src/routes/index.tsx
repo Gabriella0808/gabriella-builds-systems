@@ -455,15 +455,15 @@ function ProofSnapshot() {
 
 function About() {
   return (
-    <section className="py-24 border-t border-border">
+    <section className="py-24 border-t border-white/10 bg-[#1c1917]">
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-start">
         <div className="reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">02 / About</p>
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">
-            Practical digital systems,<br /><span className="italic text-muted-foreground">built end-to-end.</span>
+          <p className="text-xs uppercase tracking-widest text-white/60 mb-4">02 / About</p>
+          <h2 className="font-display text-3xl md:text-4xl leading-tight text-white">
+            Practical digital systems,<br /><span className="italic text-white/60">built end-to-end.</span>
           </h2>
         </div>
-        <div className="reveal space-y-5 text-muted-foreground leading-relaxed">
+        <div className="reveal space-y-5 text-white/70 leading-relaxed">
           <p>
             8+ years of experience across website management, eCommerce, CRM tools, SEO, systems integration and automation. Currently studying BSc Computer Science through the University of London.
           </p>
