@@ -5,6 +5,7 @@ import {
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
   Mail, GraduationCap, Briefcase, Wrench, Award, Map, Hammer, Sliders, ClipboardCheck,
+  Sun, Moon,
 } from "lucide-react";
 
 import lamicareUrl from "@/assets/projects/lamicare.jpg";
