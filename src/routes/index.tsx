@@ -4,7 +4,7 @@ import {
   ArrowUpRight, ArrowRight, ExternalLink, Sparkles, X,
   Globe, ShoppingCart, LayoutDashboard, Workflow, Plug, Bot, BarChart3,
   MapPin, Users, Database, Search, Zap, MessageSquare, Bell, CheckCircle2,
-  Mail, GraduationCap, Briefcase, Wrench, Award, Map, Hammer, Sliders, ClipboardCheck,
+  Mail, GraduationCap, Briefcase, Wrench, Award, Map as MapIcon, Hammer, Sliders, ClipboardCheck,
   Sun, Moon,
 } from "lucide-react";
 
@@ -213,7 +213,7 @@ const TOOL_GROUPS = [
 
 const HOW_I_WORK = [
   { icon: ClipboardCheck, title: "Audit", text: "I review the website, CRM, lead flow, SEO setup, current tools and manual processes." },
-  { icon: Map, title: "Map", text: "I map the customer journey, data flow, workflows and automation opportunities." },
+  { icon: MapIcon, title: "Map", text: "I map the customer journey, data flow, workflows and automation opportunities." },
   { icon: Hammer, title: "Build", text: "I create or improve websites, portals, CRM workflows, automations and reporting systems." },
   { icon: Plug, title: "Connect", text: "I integrate GoHighLevel, HubSpot, Make.com, Zapier, RB2B, Leadrox, Slack and reporting platforms." },
   { icon: Wrench, title: "Improve", text: "I test, refine, document and improve the system so it is easier to manage long term." },
@@ -374,27 +374,47 @@ function ThemeToggle() {
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-36 pb-24 overflow-hidden">
+    <section id="home" className="relative pt-36 pb-20 overflow-hidden">
       <div
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, var(--surface) 0%, var(--background) 60%)",
+            "radial-gradient(ellipse 90% 60% at 50% 0%, var(--surface) 0%, var(--background) 65%)",
         }}
       />
-      <div className="mx-auto max-w-5xl px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-border text-xs uppercase tracking-wider text-muted-foreground mb-8 animate-fade-up">
-          <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-          My Professional Portfolio
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10">
+          <div className="max-w-4xl">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-muted-foreground mb-7 block animate-fade-up">
+              01 / My Professional Portfolio
+            </span>
+            <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.88] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
+              Gabriella<br />
+              <span className="italic text-muted-foreground">Maccioni</span>
+            </h1>
+            <p className="mt-9 text-lg md:text-xl font-light leading-relaxed max-w-2xl text-foreground/80 animate-fade-up" style={{ animationDelay: "140ms" }}>
+              AI, Web &amp; Systems Specialist building high-performance eCommerce, custom portals, CRM workflows and automated systems that help businesses run leaner and measure smarter.
+            </p>
+          </div>
+          <div className="flex flex-col gap-5 md:border-l md:border-border md:pl-8 md:pt-2 animate-fade-up" style={{ animationDelay: "220ms" }}>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Based</p>
+              <p className="text-sm font-medium">Remote / Global</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Focus</p>
+              <p className="text-sm font-medium">Web · CRM · Automation</p>
+            </div>
+            <div className="space-y-1">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Currently</p>
+              <p className="text-sm font-medium inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
+                Open to collaboration
+              </p>
+            </div>
+          </div>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
-          AI, Web &amp; Systems<br />
-          <span className="italic text-muted-foreground">Specialist.</span>
-        </h1>
-        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: "140ms" }}>
-          I build and improve websites, custom portals, CRM workflows, automations and reporting systems that help businesses reduce manual work, improve visibility and manage leads, customers and operations more effectively.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 animate-fade-up" style={{ animationDelay: "300ms" }}>
+        <div className="mt-14 flex flex-wrap items-center gap-3 animate-fade-up" style={{ animationDelay: "300ms" }}>
           <a
             href="#projects"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
@@ -405,7 +425,7 @@ function Hero() {
             href="#lineage"
             className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
           >
-            View Lineage Portal Case Study
+            Lineage Portal Case Study
           </a>
         </div>
       </div>
@@ -415,18 +435,13 @@ function Hero() {
 
 function ProofSnapshot() {
   return (
-    <section className="pb-8 -mt-4">
+    <section className="pt-10 pb-4">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {PROOF_CARDS.map(({ icon: Icon, stat, label }, i) => (
-            <div
-              key={label}
-              className="reveal bg-card border border-border rounded-2xl p-5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
-              style={{ transitionDelay: `${i * 40}ms` }}
-            >
-              <Icon className="w-4 h-4 text-muted-foreground mb-3" />
-              <div className="font-display text-2xl md:text-3xl leading-none">{stat}</div>
-              <div className="text-xs text-muted-foreground mt-2 leading-snug">{label}</div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-0 md:divide-x divide-border border-y border-border py-10 reveal">
+          {PROOF_CARDS.map(({ stat, label }) => (
+            <div key={label} className="md:px-6 first:md:pl-0 last:md:pr-0">
+              <div className="font-display italic text-5xl md:text-6xl leading-none mb-3">{stat}</div>
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground leading-snug">{label}</div>
             </div>
           ))}
         </div>
@@ -443,9 +458,9 @@ function About() {
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-start">
         <div className="reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">About</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">02 / About</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Practical digital systems, built end-to-end.
+            Practical digital systems,<br /><span class="italic text-muted-foreground">built end-to-end.</span>
           </h2>
         </div>
         <div className="reveal space-y-5 text-muted-foreground leading-relaxed">
@@ -470,9 +485,9 @@ function Projects({
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 reveal">
           <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Featured work</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">03 / Selected works</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Selected projects across web, eCommerce and custom systems.
+              Selected projects across web,<br />eCommerce &amp; <span class="italic text-muted-foreground">custom systems.</span>
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -499,9 +514,9 @@ function Projects({
         </div>
 
         <div className="mt-20 reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Real automations I&apos;ve built</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">— Live automations</p>
           <h3 className="font-display text-3xl md:text-4xl leading-tight max-w-3xl">
-            Workflows running in Make.com, Zapier and GoHighLevel.
+            Workflows running in Make.com, Zapier <span class="italic text-muted-foreground">and GoHighLevel.</span>
           </h3>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
             A look inside the tools I use to connect CRMs, sync data, route leads and trigger notifications across teams.
@@ -677,7 +692,7 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
     <section id="lineage" className="py-28 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Featured case study</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">04 / Featured case study</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             <span className="italic">Lineage Collections</span> Portal
           </h2>
@@ -774,9 +789,9 @@ function SystemsSection() {
     <section id="systems" className="py-24 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Capabilities</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">05 / Capabilities</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Systems I can build.
+            Systems <span class="italic text-muted-foreground">I can build.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -804,9 +819,9 @@ function WorkflowSection() {
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Example lead automation workflow</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">06 / Lead automation</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            From anonymous visitor to tracked, tagged lead.
+            From anonymous visitor to<br /><span class="italic text-muted-foreground">tracked, tagged lead.</span>
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create clearer visibility over where leads are coming from.
@@ -839,9 +854,9 @@ function HowIWorkSection() {
     <section id="process" className="py-24 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">How I work</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">07 / Methodology</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            A clear process from audit to long-term improvement.
+            A clear process from audit to<br /><span class="italic text-muted-foreground">long-term improvement.</span>
           </h2>
         </div>
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -872,9 +887,9 @@ function ToolsSection() {
     <section id="tools" className="py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Tools &amp; platforms</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">08 / Toolkit</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            The stack I use day-to-day.
+            The stack I use <span class="italic text-muted-foreground">day-to-day.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -919,32 +934,28 @@ function CredibilityNote() {
 
 function CTASection() {
   return (
-    <section id="contact" className="py-28 border-t border-border">
-      <div className="mx-auto max-w-4xl px-6 text-center reveal">
-        <h2 className="font-display text-4xl md:text-5xl leading-tight">
-          Need someone who can connect websites, CRM, SEO and automation?
+    <section id="contact" className="py-32 border-t border-border bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-5xl px-6 text-center reveal">
+        <p className="text-[10px] uppercase tracking-[0.4em] opacity-60 mb-10">— Let&apos;s work together</p>
+        <h2 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tight">
+          Building systems<br />
+          <span className="italic opacity-90">that quietly run the business.</span>
         </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          I help businesses improve their digital systems by building practical websites, portals, CRM workflows, automations and reporting processes.
+        <p className="mt-10 text-lg opacity-70 max-w-2xl mx-auto leading-relaxed font-light">
+          I help businesses connect websites, CRM, SEO and automation into one system that&apos;s easier to manage and easier to measure.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
           <a
             href={CONTACT_EMAIL}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition"
           >
-            <Mail className="w-4 h-4" /> Email Me
+            <Mail className="w-4 h-4" /> Get in touch
           </a>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
+            className="inline-flex items-center gap-2 border border-primary-foreground/30 px-7 py-3.5 rounded-full text-sm font-medium hover:bg-primary-foreground/10 transition"
           >
             View Projects
-          </a>
-          <a
-            href="#lineage"
-            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
-          >
-            View Lineage Portal Case Study
           </a>
         </div>
       </div>
