@@ -693,10 +693,10 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">04 / Featured case study</p>
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl leading-tight">
             <span className="italic">Lineage Collections</span> Portal
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 text-base text-muted-foreground leading-relaxed">
             A custom internal portal built to centralise sales operations, CRM-style workflows, dealer activity and reporting.
           </p>
         </div>
@@ -821,7 +821,7 @@ function WorkflowSection() {
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">06 / Lead automation</p>
           <h2 className="font-display text-3xl md:text-4xl leading-tight">
-            From anonymous visitor to<br /><span class="italic text-muted-foreground">tracked, tagged lead.</span>
+            From anonymous visitor to<br /><span className="italic text-muted-foreground">tracked, tagged lead.</span>
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create clearer visibility over where leads are coming from.
