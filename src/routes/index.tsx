@@ -934,32 +934,28 @@ function CredibilityNote() {
 
 function CTASection() {
   return (
-    <section id="contact" className="py-28 border-t border-border">
-      <div className="mx-auto max-w-4xl px-6 text-center reveal">
-        <h2 className="font-display text-4xl md:text-5xl leading-tight">
-          Need someone who can connect websites, CRM, SEO and automation?
+    <section id="contact" className="py-32 border-t border-border bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-5xl px-6 text-center reveal">
+        <p className="text-[10px] uppercase tracking-[0.4em] opacity-60 mb-10">— Let&apos;s work together</p>
+        <h2 className="font-display text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tight">
+          Building systems<br />
+          <span className="italic opacity-90">that quietly run the business.</span>
         </h2>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          I help businesses improve their digital systems by building practical websites, portals, CRM workflows, automations and reporting processes.
+        <p className="mt-10 text-lg opacity-70 max-w-2xl mx-auto leading-relaxed font-light">
+          I help businesses connect websites, CRM, SEO and automation into one system that&apos;s easier to manage and easier to measure.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
           <a
             href={CONTACT_EMAIL}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+            className="inline-flex items-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full text-sm font-medium hover:opacity-90 transition"
           >
-            <Mail className="w-4 h-4" /> Email Me
+            <Mail className="w-4 h-4" /> Get in touch
           </a>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
+            className="inline-flex items-center gap-2 border border-primary-foreground/30 px-7 py-3.5 rounded-full text-sm font-medium hover:bg-primary-foreground/10 transition"
           >
             View Projects
-          </a>
-          <a
-            href="#lineage"
-            className="inline-flex items-center gap-2 bg-card border border-border px-6 py-3 rounded-full text-sm font-medium hover:bg-surface transition"
-          >
-            View Lineage Portal Case Study
           </a>
         </div>
       </div>
