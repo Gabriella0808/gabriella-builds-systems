@@ -460,7 +460,7 @@ function About() {
         <div className="reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">02 / About</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Practical digital systems, built end-to-end.
+            Practical digital systems,<br /><span class="italic text-muted-foreground">built end-to-end.</span>
           </h2>
         </div>
         <div className="reveal space-y-5 text-muted-foreground leading-relaxed">
@@ -487,7 +487,7 @@ function Projects({
           <div>
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">03 / Selected works</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
-              Selected projects across web, eCommerce and custom systems.
+              Selected projects across web,<br />eCommerce &amp; <span class="italic text-muted-foreground">custom systems.</span>
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -516,7 +516,7 @@ function Projects({
         <div className="mt-20 reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">— Live automations</p>
           <h3 className="font-display text-3xl md:text-4xl leading-tight max-w-3xl">
-            Workflows running in Make.com, Zapier and GoHighLevel.
+            Workflows running in Make.com, Zapier <span class="italic text-muted-foreground">and GoHighLevel.</span>
           </h3>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl">
             A look inside the tools I use to connect CRMs, sync data, route leads and trigger notifications across teams.
@@ -791,7 +791,7 @@ function SystemsSection() {
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">05 / Capabilities</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Systems I can build.
+            Systems <span class="italic text-muted-foreground">I can build.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -821,7 +821,7 @@ function WorkflowSection() {
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">06 / Lead automation</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            From anonymous visitor to tracked, tagged lead.
+            From anonymous visitor to<br /><span class="italic text-muted-foreground">tracked, tagged lead.</span>
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             This type of workflow helps businesses improve speed-to-lead, reduce missed opportunities and create clearer visibility over where leads are coming from.
@@ -856,7 +856,7 @@ function HowIWorkSection() {
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">07 / Methodology</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            A clear process from audit to long-term improvement.
+            A clear process from audit to<br /><span class="italic text-muted-foreground">long-term improvement.</span>
           </h2>
         </div>
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -889,7 +889,7 @@ function ToolsSection() {
         <div className="max-w-3xl reveal">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">08 / Toolkit</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            The stack I use day-to-day.
+            The stack I use <span class="italic text-muted-foreground">day-to-day.</span>
           </h2>
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
