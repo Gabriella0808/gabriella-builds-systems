@@ -67,6 +67,29 @@
   --ring: oklch(0.55 0.02 70);
 }
 
+.dark {
+  --background: oklch(0.16 0.008 60);
+  --surface: oklch(0.21 0.01 60);
+  --beige: oklch(0.28 0.015 65);
+  --beige-deep: oklch(0.42 0.025 65);
+  --foreground: oklch(0.96 0.008 80);
+  --card: oklch(0.21 0.01 60);
+  --card-foreground: oklch(0.96 0.008 80);
+  --popover: oklch(0.21 0.01 60);
+  --popover-foreground: oklch(0.96 0.008 80);
+  --primary: oklch(0.96 0.008 80);
+  --primary-foreground: oklch(0.18 0.01 60);
+  --secondary: oklch(0.26 0.012 65);
+  --secondary-foreground: oklch(0.96 0.008 80);
+  --muted: oklch(0.24 0.012 65);
+  --muted-foreground: oklch(0.72 0.012 70);
+  --accent: oklch(0.42 0.04 65);
+  --accent-foreground: oklch(0.96 0.008 80);
+  --border: oklch(0.32 0.012 65);
+  --input: oklch(0.32 0.012 65);
+  --ring: oklch(0.7 0.02 70);
+}
+
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
