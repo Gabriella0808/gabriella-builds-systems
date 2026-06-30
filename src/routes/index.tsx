@@ -213,7 +213,7 @@ const TOOL_GROUPS = [
 
 const HOW_I_WORK = [
   { icon: ClipboardCheck, title: "Audit", text: "I review the website, CRM, lead flow, SEO setup, current tools and manual processes." },
-  { icon: Map, title: "Map", text: "I map the customer journey, data flow, workflows and automation opportunities." },
+  { icon: MapIcon, title: "Map", text: "I map the customer journey, data flow, workflows and automation opportunities." },
   { icon: Hammer, title: "Build", text: "I create or improve websites, portals, CRM workflows, automations and reporting systems." },
   { icon: Plug, title: "Connect", text: "I integrate GoHighLevel, HubSpot, Make.com, Zapier, RB2B, Leadrox, Slack and reporting platforms." },
   { icon: Wrench, title: "Improve", text: "I test, refine, document and improve the system so it is easier to manage long term." },
