@@ -458,7 +458,7 @@ function About() {
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-16 items-start">
         <div className="reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">About</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">02 / About</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             Practical digital systems, built end-to-end.
           </h2>
@@ -485,7 +485,7 @@ function Projects({
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 reveal">
           <div>
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Featured work</p>
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">03 / Selected works</p>
             <h2 className="font-display text-4xl md:text-5xl leading-tight max-w-2xl">
               Selected projects across web, eCommerce and custom systems.
             </h2>
@@ -514,7 +514,7 @@ function Projects({
         </div>
 
         <div className="mt-20 reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Real automations I&apos;ve built</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">— Live automations</p>
           <h3 className="font-display text-3xl md:text-4xl leading-tight max-w-3xl">
             Workflows running in Make.com, Zapier and GoHighLevel.
           </h3>
@@ -692,7 +692,7 @@ function LineageShowcase({ onImageClick }: { onImageClick: (src: string, alt: st
     <section id="lineage" className="py-28 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Featured case study</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">04 / Featured case study</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             <span className="italic">Lineage Collections</span> Portal
           </h2>
@@ -789,7 +789,7 @@ function SystemsSection() {
     <section id="systems" className="py-24 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Capabilities</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">05 / Capabilities</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             Systems I can build.
           </h2>
@@ -819,7 +819,7 @@ function WorkflowSection() {
     <section className="py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Example lead automation workflow</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">06 / Lead automation</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             From anonymous visitor to tracked, tagged lead.
           </h2>
@@ -854,7 +854,7 @@ function HowIWorkSection() {
     <section id="process" className="py-24 border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">How I work</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">07 / Methodology</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             A clear process from audit to long-term improvement.
           </h2>
@@ -887,7 +887,7 @@ function ToolsSection() {
     <section id="tools" className="py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Tools &amp; platforms</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">08 / Toolkit</p>
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             The stack I use day-to-day.
           </h2>
