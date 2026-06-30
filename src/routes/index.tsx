@@ -389,8 +389,7 @@ function Hero() {
               01 / My Professional Portfolio
             </span>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight animate-fade-up" style={{ animationDelay: "60ms" }}>
-              Gabriella<br />
-              <span className="italic text-muted-foreground">Maccioni</span>
+              Gabriella <span className="italic text-muted-foreground">Maccioni</span>
             </h1>
             <p className="mt-6 text-base md:text-lg font-light leading-relaxed max-w-2xl text-foreground/80 animate-fade-up" style={{ animationDelay: "140ms" }}>
               AI, Web &amp; Systems Specialist building high-performance eCommerce, custom portals, CRM workflows and automated systems that help businesses run leaner and measure smarter.
