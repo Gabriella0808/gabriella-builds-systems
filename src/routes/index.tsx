@@ -435,18 +435,13 @@ function Hero() {
 
 function ProofSnapshot() {
   return (
-    <section className="pb-8 -mt-4">
+    <section className="pt-10 pb-4">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {PROOF_CARDS.map(({ icon: Icon, stat, label }, i) => (
-            <div
-              key={label}
-              className="reveal bg-card border border-border rounded-2xl p-5 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)] transition-all duration-500"
-              style={{ transitionDelay: `${i * 40}ms` }}
-            >
-              <Icon className="w-4 h-4 text-muted-foreground mb-3" />
-              <div className="font-display text-2xl md:text-3xl leading-none">{stat}</div>
-              <div className="text-xs text-muted-foreground mt-2 leading-snug">{label}</div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-0 md:divide-x divide-border border-y border-border py-10 reveal">
+          {PROOF_CARDS.map(({ stat, label }) => (
+            <div key={label} className="md:px-6 first:md:pl-0 last:md:pr-0">
+              <div className="font-display italic text-5xl md:text-6xl leading-none mb-3">{stat}</div>
+              <div className="text-[10px] uppercase tracking-widest text-muted-foreground leading-snug">{label}</div>
             </div>
           ))}
         </div>
